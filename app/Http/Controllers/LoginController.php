@@ -23,7 +23,7 @@ class LoginController extends Controller
     public function loggedIn(){
         $user = Auth::user();
         if($user == null){
-            return view('login');
+            return view('coming-soon');
         }
         $profiles = Profile::where('user_id', $user->id)->get();
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
