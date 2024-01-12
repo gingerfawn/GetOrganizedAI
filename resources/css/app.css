@@ -368,13 +368,13 @@ div {
     height: 15vh;
 }
 
-.add-icon svg {
+.icon-small svg {
     height: 10px;
     display: inline;
 }
 
 /*popups*/
-.popup {
+/* .popup {
     display: none;
 }
 
@@ -398,5 +398,5 @@ div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 

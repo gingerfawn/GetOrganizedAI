@@ -7,10 +7,19 @@
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <script type="text/javascript" src="{{ mix('js/bootstrap.js')}}"></script>
-        <script type="text/javascript" src="/js/popups.js"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LVJRDT1H76"></script>
 
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LVJRDT1H76');
+        </script>
 
         <title>Get Organized AI</title>
 

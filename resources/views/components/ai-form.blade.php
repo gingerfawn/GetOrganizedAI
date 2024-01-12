@@ -1,8 +1,8 @@
 <div>
-    @include('components.AIFormNav')
+    @include('components.ai-form-nav')
     @isset($history)
         @foreach($history as $chat_history)
-            <div>{{$chat_history['message']}}</div>
+            <div>{!! $chat_history['message'] !!}</div>
             <div>{{$chat_history['role']}}</div>
         @endforeach
     @endisset
@@ -13,7 +13,7 @@
     @endisset
     @isset($gemini_response)
         <div>
-            {{$gemini_response}}
+            {!! $gemini_response !!}
         </div>
     @endisset
 </div>

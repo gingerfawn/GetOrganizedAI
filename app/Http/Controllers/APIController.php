@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use GeminiAPI\Laravel\Facades\Gemini;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 use Carbon\Carbon;
 use Auth;
 
@@ -69,7 +71,8 @@ class APIController extends Controller
 
         $chat= Gemini::startChat($history);
 
-        $gemini_response = $chat->sendMessage($request->chat . 'Please limit response to 600 words. Please do not include any special characters');
+        $gemini_response = $chat->sendMessage($request->chat . 'Please limit response to 300 words. Please do not include any special characters');
+        $gemini_response = Str::markdown($gemini_response);
         //CREATE CHAT
         //TODO: fix profile and folders! 
         $current_chat = new Chats();

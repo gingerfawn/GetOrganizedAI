@@ -3,11 +3,11 @@
 <div id="container">
     @auth
     <div id="sideNav">
-        @include('components.sideNav')
+        @include('components.side-nav')
     </div>
 
     <div id="main">            
-        @include('components.AIForm')
+        @include('components.ai-form')
     </div>
 
     <div id="sideGallery">

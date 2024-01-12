@@ -1,15 +1,21 @@
-<div class="popup add-new-folder">
-    <div class="modal-header">
-        <div>Add New Folder</div>
-        <div class="close" onclick="closePopup()">{{ svg('ri-close-fill') }}</div>
+
+<div class="modal fade" id="addNewFolder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Folder Name</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="post" action="/add-new-folder">
+                @csrf
+                <input type="text" name="folder_name" value=""/>
+                <input type="hidden" name="profile_id" value="{{$current_profile->id}}">
+                <input type="submit" class="btn btn-primary">
+            </form>
+
+        </div>
+      </div>
     </div>
-    <div>
-        {{$current_profile->id}}
-        <form method="post" action="/add-new-folder">
-            @csrf
-            <label for="folder_name">Folder Name</label>
-            <input type="text" name="folder_name" value=""/>
-            <input type="submit">
-        </form>
-    </div> 
-</div>
+  </div>

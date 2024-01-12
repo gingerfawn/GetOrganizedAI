@@ -39,7 +39,6 @@ Route::get('/sign-up', function(){
     return view('signup');
 });
 
-Route::post('/add-new-note', [NotesController::class, 'addNew']);
 Route::get('/edit-note', [NotesController::class, 'editNote']);
 
 Route::post('/add-new-folder', [FoldersController::class, 'addNew']);

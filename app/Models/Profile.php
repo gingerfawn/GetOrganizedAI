@@ -12,6 +12,7 @@ class Profile extends Model
     protected $fillable = [
         'name',
         'AI_session',
+        'default'
     ];
 
     protected $hidden = [
