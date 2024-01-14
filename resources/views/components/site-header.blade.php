@@ -1,5 +1,6 @@
 <div class="site-header">
-         <h1>Get<br/> Organized<br/> AI @isset($username) - {{$username}}@endisset</h1>
+         <h1>Get<br/> Organized<br/> AI </h1>
+         @isset($current_note)<div><h2>{{ $current_note->name}}<span>{{ svg('gmdi-edit') }}</span></h2></div>@endisset
     <nav>
         <a href="/media-gallery">Media and File Gallery</a>
         <a href="/integrations">Integrations</a>

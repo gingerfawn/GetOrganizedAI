@@ -11977,6 +11977,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+h2, .h2 {
+  font-size: 24px;
+  border-bottom: solid 1px #929292;
+  padding: 5px;
+}
+h2 svg, .h2 svg {
+  height: 16px;
+  padding-left: 8px;
+  display: inline;
+  color: #929292;
+}
+
+.crud-icon svg {
+  height: 16px;
+  width: 16px;
+}
 
 html { 
     line-height:1.15;
@@ -12313,9 +12329,9 @@ h1 {
     font-size: 16px;
     padding-left: 30px;
 }
-h2{
-    font-size: 16px;
-}
+
+
+
 nav a {padding: 0 20px; font-size: 14px; font-weight: 800; padding-right: 50px}
 
 textarea.chatBox {
@@ -12351,6 +12367,7 @@ div {
     height: 10px;
     display: inline;
 }
+
 
 /*popups*/
 /* .popup {

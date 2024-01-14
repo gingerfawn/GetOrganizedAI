@@ -3,8 +3,6 @@
     @livewire('switch-profiles', ['profiles' => $profiles, 'current_profile' => $current_profile])
     <div>
         @isset($current_profile)
-        <div>{{$current_profile->name}}</div>
-
                 @isset($folders)
                 @foreach($folders as $folder)
                 @if($folder->profile_id == $current_profile->id)
@@ -43,7 +41,7 @@
             {{$draft_folder->name}}
             @foreach($notes as $note)
                 <div>
-                    <a href="/edit-note?note_id={{ $note->id }}">{{$note->name}}</a><a class="icon-small">{{ svg('gmdi-edit') }}</a>
+                    <a href="/edit-note?note_id={{ $note->id }}">{{$note->name}}</a> 
                 </div>
             @endforeach
         @endisset

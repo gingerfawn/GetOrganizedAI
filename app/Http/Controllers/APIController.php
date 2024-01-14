@@ -34,8 +34,8 @@ class APIController extends Controller
 
         //Folder setup
         $folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'user')->get();
-        $draft_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'draft')->first();
-        $media_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'media')->first();
+        $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
+        $media_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'media')->first();
         $folder_ids = [];
         foreach($folders as $folder){
             $folder_ids[] = $folder->id;
@@ -72,7 +72,7 @@ class APIController extends Controller
         $chat= Gemini::startChat($history);
 
         $gemini_response = $chat->sendMessage($request->chat . 'Please limit response to 300 words. Please do not include any special characters');
-        $gemini_response = Str::markdown($gemini_response);
+        // $gemini_response = Str::markdown($gemini_response);
         //CREATE CHAT
         //TODO: fix profile and folders! 
         $current_chat = new Chats();
@@ -80,7 +80,7 @@ class APIController extends Controller
         $current_chat->note_id = $current_note->id;
         $current_chat->order = time();
         $current_chat->user_id = $user->id;
-        $current_chat->profile_id = $profiles[0]->id;
+        $current_chat->profile_id = $current_profile->id;
         $current_chat->folder_id = $folders[0]->id;
         $current_chat->is_AI_resp = 'user';
         $current_chat->attachment_type = '';
@@ -93,7 +93,7 @@ class APIController extends Controller
         $response_chat->note_id = $current_note->id;
         $response_chat->order = time();
         $response_chat->user_id = $user->id;
-        $response_chat->profile_id = $profiles[0]->id;
+        $response_chat->profile_id = $current_profile->id;
         $response_chat->folder_id = $folders[0]->id;
         $response_chat->is_AI_resp = 'model';
         $response_chat->attachment_type = '';
@@ -102,6 +102,7 @@ class APIController extends Controller
         $response_chat->save();
 
         $notes = Notes::whereIn('folder_id', $folder_ids)->where('folder_id', $draft_folder->id)->get();
+        $history = Chats::where('note_id', $current_note->id)->orderBy('created_at', 'desc')->get();
 
         return view('index')
             ->with('username', $user->name)

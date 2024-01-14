@@ -334,9 +334,9 @@ h1 {
     font-size: 16px;
     padding-left: 30px;
 }
-h2{
-    font-size: 16px;
-}
+
+
+
 nav a {padding: 0 20px; font-size: 14px; font-weight: 800; padding-right: 50px}
 
 textarea.chatBox {
@@ -372,6 +372,7 @@ div {
     height: 10px;
     display: inline;
 }
+
 
 /*popups*/
 /* .popup {

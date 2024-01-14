@@ -25,6 +25,7 @@ class NotesController extends Controller
             return view('login');
         }
         $profiles = Profile::where('user_id', $user->id)->get();
+        
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
 
         //get the folders associated with the first profile
@@ -44,14 +45,7 @@ class NotesController extends Controller
         $note_id = $request->query('note_id');
         $note = Notes::where('id', $note_id)->first();
 
-        $chats = Chats::where('note_id', $note_id)->get();
-
-        $history = [];
-        for($i=0; $i < count($chats); $i++){
-            if($i == 0 || $chats[$i]->is_AI_resp != $chats[$i-1]->is_AI_resp){
-                $history[] = ['message' => $chats[$i]->chat, 'role' => $chats[$i]->is_AI_resp];
-            };
-        };
+        $history = Chats::where('note_id', $note_id)->orderBy('created_at', 'desc')->get();
 
         return view('index')
             ->with('username', $user->name)
