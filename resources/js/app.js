@@ -8,6 +8,7 @@ import './bootstrap';
 import { createApp } from 'vue';
 
 import jQuery from 'jquery';
+import 'livewire-sortable';
 window.$ = jQuery;
 
 /**

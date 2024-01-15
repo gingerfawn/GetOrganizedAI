@@ -3,7 +3,8 @@ namespace App\Livewire;
 use Illuminate\Support\Facades\Auth;
 
 use Livewire\Component;
-use App\Models\Profile;
+use App\Models\Notes;
+
 
 class SideNav extends Component
 {
@@ -11,24 +12,20 @@ class SideNav extends Component
     public $profiles;
     public $selected_profile;
     public $current_profile;
+    public $folders;
+    public $notes;
+    public $note_id;
+    public $draft_folders;
 
-    public function updateSelectedProfile($selected_profile)
-    {
-        
-        $this->selected_profile = $selected_profile;
-        $profile_ids = [];
-        foreach($this->profiles as $profile){
-            $profile_ids[] = $profile->id;
-        }
+    public function moveNote($note, $folder){
 
-        Profile::whereIn('id', $profile_ids)->update(['default' => 'false']);
-        Profile::where('id', $selected_profile)->update(['default' => 'true']);
-
-        return redirect()->to('/');
+        $note = Notes::find($note);
+        $note->folder_id = $folder;
+        $note->save();
     }
 
     public function render()
     {
-        return view('livewire.side-nav');
+        return view('livewire.side-nav')->with('folders', $this->folders)->with('notes', $this->notes);
     }
 }

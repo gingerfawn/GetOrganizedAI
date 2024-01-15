@@ -11994,6 +11994,14 @@ h2 svg, .h2 svg {
   width: 16px;
 }
 
+.side-menu-panel {
+  list-style: none;
+}
+
+.bg-yellow-100 {
+  background: yellow;
+}
+
 html { 
     line-height:1.15;
     -webkit-text-size-adjust:100%

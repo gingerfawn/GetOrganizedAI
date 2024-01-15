@@ -25,21 +25,26 @@ class NotesController extends Controller
             return view('login');
         }
         $profiles = Profile::where('user_id', $user->id)->get();
-        
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
+        $profile_ids = [];
+        foreach($profiles as $profile){
+            $profile_ids[] = $profile->id;
+        }
 
-        //get the folders associated with the first profile
-        $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
-        $media_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'media')->first();
-        $folders = Folders::where('profile_id', $current_profile->id)->where('type', 'user')->get();
-
+        //Folder setup
+        $folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'user')->get();
+        $draft_folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'draft')->get();
+        $media_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'media')->get();
         $folder_ids = [];
         foreach($folders as $folder){
             $folder_ids[] = $folder->id;
         }
-        $folder_ids[] = $draft_folder->id;
 
-        $notes = Notes::whereIn('folder_id', $folder_ids)->where('folder_id', $draft_folder->id)->get();
+        foreach($draft_folders as $folder){
+            $folder_ids[] = $folder->id;
+        }
+
+        $notes = Notes::whereIn('folder_id', $folder_ids)->get();
 
         //ADDITIONAL FUNCTIONALITY
         $note_id = $request->query('note_id');
@@ -51,7 +56,7 @@ class NotesController extends Controller
             ->with('username', $user->name)
             ->with('profiles', $profiles)
             ->with('folders', $folders)
-            ->with('draft_folder', $draft_folder)
+            ->with('draft_folders', $draft_folders)
             ->with('media_folder', $media_folder)
             ->with('notes', $notes)
             ->with('history', $history)

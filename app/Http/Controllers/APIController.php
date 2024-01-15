@@ -26,6 +26,7 @@ class APIController extends Controller
 
         $profiles = Profile::where('user_id', $user->id)->get();
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
+        $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
 
         $profile_ids = [];
         foreach($profiles as $profile){
@@ -34,13 +35,16 @@ class APIController extends Controller
 
         //Folder setup
         $folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'user')->get();
-        $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
-        $media_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'media')->first();
+        $draft_folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'draft')->get();
+        $media_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'media')->get();
         $folder_ids = [];
         foreach($folders as $folder){
             $folder_ids[] = $folder->id;
         }
-        $folder_ids[] = $draft_folder->id;
+
+        foreach($draft_folders as $folder){
+            $folder_ids[] = $folder->id;
+        }
 
         //Notes setup
         $notes = Notes::whereIn('folder_id', $folder_ids)->get();
@@ -81,7 +85,7 @@ class APIController extends Controller
         $current_chat->order = time();
         $current_chat->user_id = $user->id;
         $current_chat->profile_id = $current_profile->id;
-        $current_chat->folder_id = $folders[0]->id;
+        $current_chat->folder_id = $draft_folder->id;
         $current_chat->is_AI_resp = 'user';
         $current_chat->attachment_type = '';
         $current_chat->filepath = '';
@@ -94,14 +98,15 @@ class APIController extends Controller
         $response_chat->order = time();
         $response_chat->user_id = $user->id;
         $response_chat->profile_id = $current_profile->id;
-        $response_chat->folder_id = $folders[0]->id;
+        $response_chat->folder_id = $draft_folder->id;
         $response_chat->is_AI_resp = 'model';
         $response_chat->attachment_type = '';
         $response_chat->filepath = '';
         $response_chat->name = '';
         $response_chat->save();
 
-        $notes = Notes::whereIn('folder_id', $folder_ids)->where('folder_id', $draft_folder->id)->get();
+
+        $notes = Notes::whereIn('folder_id', $folder_ids)->get();
         $history = Chats::where('note_id', $current_note->id)->orderBy('created_at', 'desc')->get();
 
         return view('index')
@@ -109,7 +114,7 @@ class APIController extends Controller
             ->with('profiles', $profiles)
             ->with('folders', $folders)
             ->with('media_folder', $media_folder)
-            ->with('draft_folder', $draft_folder)
+            ->with('draft_folders', $draft_folders)
             ->with('notes', $notes)
             ->with('chat', $request->chat)
             ->with('history', $history)
