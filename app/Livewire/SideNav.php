@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Livewire\Component;
 use App\Models\Notes;
+use Illuminate\Http\Request;
 
 
 class SideNav extends Component
@@ -16,9 +17,9 @@ class SideNav extends Component
     public $notes;
     public $note_id;
     public $draft_folders;
-    // protected $listeners = ['moveNoteExecuted'];
 
-    public function moveNote($note, $folder){
+    public function moveNote($note, $folder, $queryString){
+
         if($note != null && $folder != null){
             $note = Notes::find($note);
             $note->folder_id = $folder;
@@ -35,10 +36,9 @@ class SideNav extends Component
             }
 
             $this->notes = Notes::whereIn('folder_id', $get_notes)->get();
-            // $this->emit('moveNoteExecuted');
-        } else {
-            dd($note, $folder);
-        }
+            $this->redirect('/?'.$queryString);
+
+        } 
 
         $this->render();
     }

@@ -40,8 +40,14 @@
     </div>
     <script>
         window.onload = setUpDragNDrop();
-        livewire.on('moveNoteExecuted', setUpDragNDrop());
 
+        window.onload = (function(){
+            Livewire.on('moveNoteExecuted', function(){
+                setUpDragNDrop();
+            });
+
+        })
+        
         function setUpDragNDrop (){
             console.log('executed');
         let dragFolders = document.querySelectorAll('[drag-folder]');
@@ -51,6 +57,7 @@
                 // let draggingEl = document.querySelector('[dragging]').getAttribute('drag-item');
                 e.preventDefault();
                 var note_id = e.dataTransfer.getData('note_id');
+                console.log('drop', e.dataTransfer);
                 let folder = '';
                 if(e.target.hasAttribute('folder_id')){
                     console.log('has', e.target.getAttribute('folder_id'));
@@ -61,7 +68,10 @@
                 }
                 // let folder = e.target.closest('[folder_id]').getAttribute('folder_id');
                 let component = Livewire.find(e.target.closest('[wire\\:id]').getAttribute('wire:id'));
-                component.call('moveNote', note_id, folder);
+                let params = (new URL(document.location)).searchParams.toString();
+                console.log('params', params);
+                component.call('moveNote', note_id, folder, params);
+                e.dataTransfer.clearData();
             });
             dragFolder.addEventListener('dragstart', e => {
                 // console.log(e.target)
@@ -90,7 +100,6 @@
                     // e.target.setAttribute('dragging', true);
                     $note_id = e.target.closest('[drag-item]').getAttribute('drag-item');
                     e.dataTransfer.setData("note_id", $note_id);
-                    console.log();
                 })
     
                 dragNote.addEventListener('drop', e => {
