@@ -19,15 +19,12 @@ h2 {
     }
 }
 
-.crud-icon svg {
-    height: 16px;
-    width: 16px;
-}
 
 .sideNavContainer {
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-width: 200px;
     .add-new-container {
         margin-top: auto;
     }
@@ -39,6 +36,15 @@ h2 {
         margin-bottom: 5px;
         a {
             font-weight: 400;
+            padding-left: 20px;
+        }
+        svg{
+            height: 16px;
+            padding-left: 8px;
+            display: inline;
+            color: #929292;
+            padding-bottom: 5px;
+            padding-right: 3px;
         }
     }
 }

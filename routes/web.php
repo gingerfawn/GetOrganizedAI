@@ -20,9 +20,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [LoginController::class, 'loggedIn']);
+// Route::get('/', [LoginController::class, 'loggedIn']);
 
-Route::post('/', [APIController::class, 'show']);
+Route::any('/', [APIController::class, 'show']);
 
 // Route::post('/songAPI', [APIController::class, 'show']);
 // Route::get('/songAPI', function(){
@@ -39,7 +39,9 @@ Route::get('/sign-up', function(){
     return view('signup');
 });
 
-Route::get('/edit-note', [NotesController::class, 'editNote']);
+// Route::any('/edit-note', [NotesController::class, 'editNote']);
+// Route::any('/edit-note', [APIController::class, 'show']);
+
 
 Route::post('/add-new-folder', [FoldersController::class, 'addNew']);
 Route::post('/add-new-profile', [ProfileController::class, 'addNew']);

@@ -5,7 +5,7 @@
     <div>
         <label for="chat">Chat</label>
         <textarea name="chat" value="" class="chatBox"></textarea>
-        <input type="hidden" name="note" value="@isset($current_note){{$current_note->id}}@endisset">
+        <input type="hidden" name="note" value="@if($current_note != ""){{$current_note->id}}@endif">
     </div>
     <div>
         <input type="submit" value="Submit">
@@ -14,12 +14,12 @@
 
 <div>
 
-    @isset($history)
+    @if($history != "")
     @foreach($history as $chat_history)
         <div>{!! $chat_history->chat!!}</div>
         <div>{{$chat_history->is_AI_resp}}</div>
     @endforeach
-    @endisset
+    @endif
 
 </div>
 

@@ -11989,15 +11989,11 @@ h2 svg, .h2 svg {
   color: #929292;
 }
 
-.crud-icon svg {
-  height: 16px;
-  width: 16px;
-}
-
 .sideNavContainer {
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 200px;
 }
 .sideNavContainer .add-new-container {
   margin-top: auto;
@@ -12010,6 +12006,15 @@ h2 svg, .h2 svg {
 }
 .sideNavContainer .side-nav-folder a {
   font-weight: 400;
+  padding-left: 20px;
+}
+.sideNavContainer .side-nav-folder svg {
+  height: 16px;
+  padding-left: 8px;
+  display: inline;
+  color: #929292;
+  padding-bottom: 5px;
+  padding-right: 3px;
 }
 
 .bg-yellow-100 {

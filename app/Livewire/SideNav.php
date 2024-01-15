@@ -16,12 +16,31 @@ class SideNav extends Component
     public $notes;
     public $note_id;
     public $draft_folders;
+    // protected $listeners = ['moveNoteExecuted'];
 
     public function moveNote($note, $folder){
+        if($note != null && $folder != null){
+            $note = Notes::find($note);
+            $note->folder_id = $folder;
+            $note->save();
 
-        $note = Notes::find($note);
-        $note->folder_id = $folder;
-        $note->save();
+            //switch chats?
+
+            $get_notes = [];
+            foreach($this->folders as $folder){
+                $get_notes[] = $folder->id;
+            }
+            foreach($this->draft_folders as $folder){
+                $get_notes[] = $folder->id;
+            }
+
+            $this->notes = Notes::whereIn('folder_id', $get_notes)->get();
+            // $this->emit('moveNoteExecuted');
+        } else {
+            dd($note, $folder);
+        }
+
+        $this->render();
     }
 
     public function render()

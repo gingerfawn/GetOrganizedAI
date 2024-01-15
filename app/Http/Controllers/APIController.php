@@ -24,6 +24,10 @@ class APIController extends Controller
         //View dependencies
         $user = Auth::user();
 
+        if($user == null){
+            return view('coming-soon');
+        }
+
         $profiles = Profile::where('user_id', $user->id)->get();
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
         $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
@@ -52,16 +56,26 @@ class APIController extends Controller
         foreach($notes as $note){
             $notes_ids[] = $note->id;
         }
-        //Start chat functionality
+
+
         //IF NOTE EXISTS ELSE CREATE NOTE
         if(isset($request->note) && trim($request->note != '')){
             $current_note = Notes::where('id', $request->note)->first();
+            if($request->exists('note_name')){
+                $current_note->name = ucwords($request->note_name);
+                $current_note->save();
+            }
         } else {
-            $current_note = new Notes();
-            $current_note->folder_id = $draft_folder->id;
-            $current_note->name = Carbon::now()->format('l, M d');
-            $current_note->save();
+            if($request->exists('chat') && trim($request->chat) != ''){
+                $current_note = new Notes();
+                $current_note->folder_id = $draft_folder->id;
+                $current_note->name = Carbon::now()->format('l, M d');
+                $current_note->save();
+            }
         }
+
+        //Start chat functionality
+        if($request->exists('chat') && trim($request->chat) != ''){
 
         $gemini_response = Gemini::generateText($request->chat);
         $chats = Chats::where('note_id', $current_note->id)->get();
@@ -104,10 +118,15 @@ class APIController extends Controller
         $response_chat->filepath = '';
         $response_chat->name = '';
         $response_chat->save();
-
+        }
 
         $notes = Notes::whereIn('folder_id', $folder_ids)->get();
-        $history = Chats::where('note_id', $current_note->id)->orderBy('created_at', 'desc')->get();
+        $history = '';
+        if(isset($current_note)){
+            $history = Chats::where('note_id', $current_note->id)->orderBy('created_at', 'desc')->get();
+        } else {
+            $current_note = '';
+        }
 
         return view('index')
             ->with('username', $user->name)
@@ -119,7 +138,6 @@ class APIController extends Controller
             ->with('chat', $request->chat)
             ->with('history', $history)
             ->with('current_note', $current_note)
-            ->with('current_profile', $current_profile)
-            ->with('gemini_response', $gemini_response);
+            ->with('current_profile', $current_profile);
     }
 }
