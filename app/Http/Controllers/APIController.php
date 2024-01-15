@@ -76,7 +76,7 @@ class APIController extends Controller
         $chat= Gemini::startChat($history);
 
         $gemini_response = $chat->sendMessage($request->chat . 'Please limit response to 300 words. Please do not include any special characters');
-        // $gemini_response = Str::markdown($gemini_response);
+        $gemini_response = Str::markdown($gemini_response);
         //CREATE CHAT
         //TODO: fix profile and folders! 
         $current_chat = new Chats();

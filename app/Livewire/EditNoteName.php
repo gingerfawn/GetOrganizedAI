@@ -8,6 +8,7 @@ class EditNoteName extends Component
 {
     public $current_note_id;
     public $current_note_name;
+    public $show = false;
 
     public function render()
     {

@@ -24,9 +24,25 @@ h2 {
     width: 16px;
 }
 
-.side-menu-panel{
-    list-style: none;
+.sideNavContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .add-new-container {
+        margin-top: auto;
+    }
+
+    .side-nav-folder{
+        font-weight: 800;
+        border-bottom: 1px solid #929292;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        a {
+            font-weight: 400;
+        }
+    }
 }
+
 
 .bg-yellow-100{
     background: yellow;

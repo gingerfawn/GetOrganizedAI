@@ -49,6 +49,11 @@ class NotesController extends Controller
         //ADDITIONAL FUNCTIONALITY
         $note_id = $request->query('note_id');
         $note = Notes::where('id', $note_id)->first();
+        if($request->exists('note_name')){
+            $note->name = $request->note_name;
+            $note->save();
+            $notes = Notes::whereIn('folder_id', $folder_ids)->get();
+        }
 
         $history = Chats::where('note_id', $note_id)->orderBy('created_at', 'desc')->get();
 

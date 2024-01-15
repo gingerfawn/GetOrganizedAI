@@ -4,7 +4,7 @@
     @isset($folders)
         @foreach($folders as $folder)
         @if($folder->profile_id == $current_profile->id)
-        <div folder_id="{{$folder->id}}"   drag-folder draggable="true" wire:key="{{ $folder->id }}">
+        <div folder_id="{{$folder->id}}"  drag-folder draggable="true" wire:key="{{ $folder->id }}" class="side-nav-folder">
             {{$folder->name}}
             @isset($notes)
                 @foreach($notes as $note)
@@ -21,7 +21,7 @@
 
         @foreach($draft_folders as $folder)
         @if($folder->profile_id == $current_profile->id)
-            <div folder_id="{{$folder->id}}" drag-folder draggable="true" wire:key="{{ $folder->id }}" >
+            <div folder_id="{{$folder->id}}" drag-folder draggable="true" wire:key="{{ $folder->id }}" class="side-nav-folder">
                 {{$folder->name}}
                 @isset($notes)
                 @foreach($notes as $note)
