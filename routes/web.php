@@ -8,6 +8,7 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\FoldersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ use App\Http\Controllers\AdminController;
 // Route::get('/', [LoginController::class, 'loggedIn']);
 
 Route::any('/', [APIController::class, 'show']);
+Route::any('/media-gallery', [MediaController::class, 'view']);
 
 // Route::post('/songAPI', [APIController::class, 'show']);
 // Route::get('/songAPI', function(){

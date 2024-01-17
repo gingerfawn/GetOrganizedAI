@@ -10,9 +10,9 @@
         @include('components.ai-form')
     </div>
 
-    <div id="sideGallery">
+    {{-- <div id="sideGallery">
         @include('components.side-media-gallery')
-    </div>
+    </div> --}}
     @endauth
 </div>
 @include('components.footer')
