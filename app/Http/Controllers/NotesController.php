@@ -17,4 +17,11 @@ class NotesController extends Controller
 
         return back();
     }
+
+    public function deleteNote(Request $request){
+        $note_id = $request->note_id;
+        Notes::where('id', $note_id)->delete();
+        Chats::where('note_id', $note_id)->delete();
+        return redirect('/');
+    }
 }

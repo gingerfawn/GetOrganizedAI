@@ -3,16 +3,15 @@
     @csrf
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
     <div>
-        <label for="chat">Chat</label>
         <textarea name="chat" value="" class="chatBox"></textarea>
         <input type="hidden" name="note" value="@if($current_note != ""){{$current_note->id}}@endif">
     </div>
     <div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Ask Gemini" class="gemini_submit">
     </div>
 </form>
 
-<div>
+<div class="scroll-history">
 
     @if($history != "")
     @foreach($history as $chat_history)
@@ -23,7 +22,7 @@
 
 </div>
 
-<div>
+<div class="chat-footer">
 @include('components.ai-form-footer')
 </div>
 </div>

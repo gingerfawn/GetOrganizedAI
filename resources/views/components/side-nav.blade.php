@@ -5,6 +5,6 @@
                             'folders' => $folders,
                             'notes' => $notes,
                             'draft_folders' => $draft_folders])
-    @include('components.side-nav-add-new');
+    @include('components.side-nav-add-new')
 </div>
 

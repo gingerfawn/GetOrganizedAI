@@ -46,6 +46,10 @@ Route::get('/sign-up', function(){
 Route::post('/add-new-folder', [FoldersController::class, 'addNew']);
 Route::post('/add-new-profile', [ProfileController::class, 'addNew']);
 
+Route::post('/delete-note', [NotesController::class, 'deleteNote']);
+
+Route::post('/edit-delete-profiles-folders', [ProfileController::class, 'editDeleteProfilesFolders']);
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
