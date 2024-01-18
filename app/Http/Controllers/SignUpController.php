@@ -15,6 +15,23 @@ class SignUpController extends Controller
         //TODO: clean data, required fields
         //TODO: compare passwords
         //TODO: only create profile - notes if user is created
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            return view('signup')->with('dup_account_message', 'Email '.$request->email.' already has an account. <a href="/login">Please log in.</a>');
+        }
+
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        // if($valid_email->fails()){
+        //     return view('signup')->with('validation_error', 'Invalid email. Please make sure the formatting is correct')->with('name', $request->name);
+        // }
+
+        if($request->password != $request->confirm_password){
+            return view('signup')->with('validation_error', 'Passwords to not match. Please try again.')->with('email', $request->email)->with('name', $request->name);
+        }
 
         $user = User::firstOrCreate(
             ['email' => $request->email],

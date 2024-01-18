@@ -19,13 +19,11 @@
         @endif
         @endforeach
 
-        @foreach($draft_folders as $folder)
-        @if($folder->profile_id == $current_profile->id)
-            <div folder_id="{{$folder->id}}" drag-folder draggable="true" wire:key="folder-{{ $folder->id }}" class="side-nav-folder">
-                <div class="folder-name">{{ svg('fas-folder') }} {{$folder->name}}</div>
+            <div folder_id="{{$draft_folder->id}}" drag-folder draggable="true" wire:key="folder-{{ $draft_folder->id }}" class="side-nav-folder">
+                <div class="folder-name">{{ svg('fas-folder') }} {{$draft_folder->name}}</div>
                 @isset($notes)
                 @foreach($notes as $note)
-                    @if($note->folder_id == $folder->id)
+                    @if($note->folder_id == $draft_folder->id)
                     <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}">
                         <a href="/?note={{ $note->id }}">{{$note->name}}</a> 
                     </div>
@@ -33,8 +31,6 @@
                 @endforeach
                 @endisset
             </div>
-        @endif
-        @endforeach
     @endisset
     @endisset
     </div>
@@ -58,19 +54,25 @@
                 e.preventDefault();
                 var note_id = e.dataTransfer.getData('note_id');
                 console.log('drop', e.dataTransfer);
-                let folder = '';
+                let folder_id = '';
+                let notesArray = [];
                 if(e.target.hasAttribute('folder_id')){
-                    console.log('has', e.target.getAttribute('folder_id'));
-                    folder = e.target.getAttribute('folder_id'); 
+                    folder_id = e.target.getAttribute('folder_id'); 
                 } else {
-                    console.log('closest', e.target.closest('[folder_id]').getAttribute('folder_id'));
-                    folder = e.target.closest('[folder_id]').getAttribute('folder_id');
+                    // let component = Livewire.find(
+                    //     e.target.closest('[wire\\:id]').getAttribute('wire:id');
+                    // )
+                    // component.call('$refresh');
+                    folder = e.target.closest('[folder_id]');
+                    folder_id = folder.getAttribute('folder_id');
+                    notesArray = Array.from(folder.querySelectorAll('[drag-item]')).map( note => note.getAttribute('drag-item'));
+                    console.log('here', folder_id, notesArray);
                 }
                 // let folder = e.target.closest('[folder_id]').getAttribute('folder_id');
                 let component = Livewire.find(e.target.closest('[wire\\:id]').getAttribute('wire:id'));
                 let params = (new URL(document.location)).searchParams.toString();
-                console.log('params', params);
-                component.call('moveNote', note_id, folder, params);
+                // console.log('params', params);
+                component.call('moveNote', note_id, folder_id, params);
                 e.dataTransfer.clearData();
             });
             dragFolder.addEventListener('dragstart', e => {
@@ -91,8 +93,8 @@
                 // console.log(e.target)
             });
             dragFolder.addEventListener('dragend', e => {
-                // console.log(e.target)
-            })
+
+            });
     
             dragFolder.querySelectorAll('[drag-note]').forEach(dragNote => {
                 // console.log(dragNote);
@@ -106,10 +108,10 @@
                     e.target.classList.remove('bg-yellow-100');
     
                     //get the note just getting one folder, could cause issues
-                    let draggingEl = dragFolder.querySelector('[dragging]');
+                    // let draggingEl = dragFolder.querySelector('[dragging]');
                     //insert into folder
                     //add possible conditions for dragging up and dragging down
-                    e.target.before(draggingEl);
+                    // e.target.before(draggingEl);
                     // let component = Livewire.find(e.target.closest('[wire\\:id]').getAttribute('wire:id'));
                     // component.call('moveNote', e.target, dragFolder);
     

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 use App\Models\User;
 use App\Models\Profile;
@@ -14,10 +16,30 @@ class LoginController extends Controller
 {
     public function login(Request $request){
        if(Auth::attempt($request->only('email', 'password'))){
+        $user = Auth::user();
+        if($user->is_temp_pw){
+            return view('reset-password');
+        }
         return redirect('/');
        } else {
         return view('login');
        }
+    }
+
+    public function getLogin(Request $request){
+        $message = '';
+        if($request->exists('pw_reset')){
+            $message = 'Temporary password sent to your email. Please retrieve and log in.';
+        }
+        return view('login')->with('message', $message);
+    }
+
+    public function resetPassword(Request $request){
+        $user = Auth::user();
+        $user->password = Hash::make($request->new_password);
+        $user->is_temp_pw = null;
+        $user->save();
+        return redirect('/');
     }
 
     // public function loggedIn(Request $request){

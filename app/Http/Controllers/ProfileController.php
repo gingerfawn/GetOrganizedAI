@@ -20,12 +20,6 @@ class ProfileController extends Controller
             $profile->user_id = $user->id;
             $profile->AI_session = '';
             $profile->save();
-
-            $folder = new Folders();
-            $folder->profile_id = $profile->id;
-            $folder->name = 'Draft Folder';
-            $folder->type = 'draft';
-            $folder->save();
     
             $folder = new Folders();
             $folder->profile_id = $profile->id;

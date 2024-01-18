@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'account_type'
+        'account_type',
+        'is_temp_pw'
     ];
 
     /**

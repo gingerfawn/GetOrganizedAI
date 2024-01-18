@@ -15,8 +15,13 @@
 
     @if($history != "")
     @foreach($history as $chat_history)
+    @if($chat_history->is_AI_resp == 'user')
+        <div>{{ $chat_history->chat }}</div>
+        <div>{{$chat_history->is_AI_resp}}</div>
+    @else 
         <div>{!! $chat_history->chat!!}</div>
         <div>{{$chat_history->is_AI_resp}}</div>
+    @endif
     @endforeach
     @endif
 

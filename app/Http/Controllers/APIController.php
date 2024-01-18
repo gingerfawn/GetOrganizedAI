@@ -20,7 +20,6 @@ class APIController extends Controller
 {   //TODO: create default profile option
 
     public function show(Request $request){
-
         //View dependencies
         $user = Auth::user();
 
@@ -39,16 +38,14 @@ class APIController extends Controller
 
         //Folder setup
         $folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'user')->get();
-        $draft_folders = Folders::whereIn('profile_id', $profile_ids)->where('type', 'draft')->get();
+        $draft_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'draft')->first();
         $media_folder = Folders::whereIn('profile_id', $profile_ids)->where('type', 'media')->get();
         $folder_ids = [];
         foreach($folders as $folder){
             $folder_ids[] = $folder->id;
         }
 
-        foreach($draft_folders as $folder){
-            $folder_ids[] = $folder->id;
-        }
+        $folder_ids[] = $draft_folder->id;
 
         //Notes setup
         $notes = Notes::whereIn('folder_id', $folder_ids)->get();
@@ -94,7 +91,7 @@ class APIController extends Controller
         //CREATE CHAT
         //TODO: fix profile and folders! 
         $current_chat = new Chats();
-        $current_chat->chat = $request->chat;
+        $current_chat->chat = htmlspecialchars($request->chat);
         $current_chat->note_id = $current_note->id;
         $current_chat->order = time();
         $current_chat->user_id = $user->id;
@@ -133,7 +130,7 @@ class APIController extends Controller
             ->with('profiles', $profiles)
             ->with('folders', $folders)
             ->with('media_folder', $media_folder)
-            ->with('draft_folders', $draft_folders)
+            ->with('draft_folder', $draft_folder)
             ->with('notes', $notes)
             ->with('chat', $request->chat)
             ->with('history', $history)

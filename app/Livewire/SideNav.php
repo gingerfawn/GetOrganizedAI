@@ -16,7 +16,7 @@ class SideNav extends Component
     public $folders;
     public $notes;
     public $note_id;
-    public $draft_folders;
+    public $draft_folder;
 
     public function moveNote($note, $folder, $queryString){
 
@@ -31,9 +31,7 @@ class SideNav extends Component
             foreach($this->folders as $folder){
                 $get_notes[] = $folder->id;
             }
-            foreach($this->draft_folders as $folder){
-                $get_notes[] = $folder->id;
-            }
+                $get_notes[] = $this->draft_folder->id;
 
             $this->notes = Notes::whereIn('folder_id', $get_notes)->get();
             $this->redirect('/?'.$queryString);
