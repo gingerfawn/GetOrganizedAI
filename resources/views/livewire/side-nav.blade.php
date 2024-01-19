@@ -10,7 +10,7 @@
                 @foreach($notes as $note)
                     @if($note->folder_id == $folder->id)
                     <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}">
-                        <a href="/?note={{ $note->id }}">{{$note->name}}</a> 
+                        <a draggable='true' href="/?note={{ $note->id }}">{{$note->name}}</a> 
                     </div>
                     @endif
                 @endforeach
