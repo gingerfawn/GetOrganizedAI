@@ -11977,96 +11977,30 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-h2, .h2 {
-  font-size: 24px;
-  border-bottom: solid 1px #929292;
-  padding: 5px;
-}
-h2 svg, .h2 svg {
-  height: 16px;
-  padding-left: 8px;
-  display: inline;
-  color: #929292;
-}
-
-.sideNavContainer {
-  height: 100%;
+.site-header {
   display: flex;
-  flex-direction: column;
-  min-width: 200px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 15vh;
 }
-.sideNavContainer .add-new-container {
-  margin-top: auto;
-}
-.sideNavContainer select {
-  width: 100%;
-  padding: 5px;
-}
-.sideNavContainer .side-nav-folder {
-  font-weight: 800;
-  border-bottom: 1px solid #929292;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-}
-.sideNavContainer .side-nav-folder a {
-  font-weight: 400;
-  padding-left: 20px;
-}
-.sideNavContainer .side-nav-folder svg {
-  height: 16px;
-  padding-left: 8px;
-  display: inline;
-  color: #929292;
-  padding-bottom: 5px;
-  padding-right: 3px;
-}
-
-.bg-yellow-100 {
-  background: rgb(160, 160, 160);
-}
-
-.gemini_submit {
-  width: 100%;
-  padding: 5px;
-  margin: 0;
-  margin-top: -10px;
-}
-
-#main {
-  width: 80vw;
-}
-#main div form div {
-  margin: 0;
-  padding: 0;
-}
-#main div form div textarea {
-  margin: 0;
-  padding: 0;
-}
-
-input, textarea {
-  border: 1px solid gray;
-  border-radius: 5px;
-}
-
-h1, .h1 {
+.site-header h1, .site-header .h1 {
   display: flex;
   margin: 0;
   font-weight: 800;
   font-size: 16px;
   padding-left: 30px;
 }
-
-nav a {
-  padding: 0 20px;
-  font-size: 14px;
-  font-weight: 800;
-  padding-right: 50px;
+.site-header h2, .site-header .h2 {
+  font-size: 24px;
+  border-bottom: solid 1px #929292;
+  padding: 5px;
 }
-
-textarea.chatBox {
-  width: 100%;
-  height: 100px;
+.site-header h2 svg, .site-header .h2 svg {
+  height: 16px;
+  padding-left: 8px;
+  display: inline;
+  color: #929292;
 }
 
 #container {
@@ -12074,33 +12008,80 @@ textarea.chatBox {
   flex-direction: row;
   flex: 1;
 }
+#container .sideNavContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+#container .sideNavContainer .add-new-container {
+  margin-top: auto;
+}
+#container .sideNavContainer .bg-yellow-100 {
+  background: rgb(160, 160, 160);
+}
+#container .sideNavContainer .side-nav-folder {
+  font-weight: 800;
+  border-bottom: 1px solid #929292;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+#container .sideNavContainer .side-nav-folder a {
+  font-weight: 400;
+  padding-left: 20px;
+}
+#container .sideNavContainer .side-nav-folder svg {
+  height: 16px;
+  padding-left: 8px;
+  display: inline;
+  color: #929292;
+  padding-bottom: 5px;
+  padding-right: 3px;
+}
+#container #main {
+  width: 80vw;
+}
 #container #main .scroll-history {
   height: 50vh;
   overflow-y: scroll;
   flex-grow: 1;
 }
-#container .ai-form-footer {
+#container #main .gemini_submit {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  margin-top: -10px;
+}
+#container #main textarea.chatBox {
+  width: 100%;
+  height: 100px;
+}
+#container #main .ai-form-footer {
   border-top: 1px solid gray;
   display: flex;
   justify-content: space-between;
 }
-#container .ai-form-footer .crud-icon {
+#container #main .ai-form-footer .crud-icon {
   height: 30px;
   width: 30px;
   background-color: transparent;
   color: gray;
 }
 
-div {
+input, textarea, select {
+  border: 1px solid rgb(198, 198, 198);
+  border-radius: 5px;
   padding: 5px;
+  width: 100%;
 }
 
-.site-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 15vh;
+textarea:focus, input:focus, *:focus {
+  outline: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+div {
+  padding: 5px;
 }
 
 .icon-small svg {

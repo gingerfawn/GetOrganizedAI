@@ -12,7 +12,7 @@
                 @csrf
                 <input type="text" name="folder_name" value=""/>
                 <input type="hidden" name="profile_id" value="{{$current_profile->id}}">
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" value="Submit">
             </form>
 
         </div>

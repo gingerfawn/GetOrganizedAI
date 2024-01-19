@@ -7,7 +7,7 @@
         <input type="hidden" name="note" value="@if($current_note != ""){{$current_note->id}}@endif">
     </div>
     <div>
-        <input type="submit" value="Ask Gemini" class="gemini_submit">
+        <input type="submit" value="Ask" class="gemini_submit">
     </div>
 </form>
 
