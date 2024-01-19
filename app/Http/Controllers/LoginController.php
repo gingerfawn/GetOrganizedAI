@@ -17,12 +17,12 @@ class LoginController extends Controller
     public function login(Request $request){
        if(Auth::attempt($request->only('email', 'password'))){
         $user = Auth::user();
-        if($user->is_temp_pw){
+        if($user->is_temp_pw == true){
             return view('reset-password');
         }
         return redirect('/');
        } else {
-        return view('login');
+        return view('login')->with('message', 'Password incorrect. Please try again');
        }
     }
 
