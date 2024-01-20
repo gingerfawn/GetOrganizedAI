@@ -61,11 +61,11 @@ Route::get('/privacy-policy', function(){
 });
 
 Route::get('/terms-of-service', function(){
-    return view('/terms-of-service');
+    return view('terms-and-conditions');
 });
 
 Route::get('/forgot-password', function(){
-    return view('/forgot-password');
+    return view('forgot-password');
 });
 Route::post('/reset-password-temp', [MailController::class, 'resetPassword']);
 Route::post('/reset-password', [LoginController::class, 'resetPassword']);

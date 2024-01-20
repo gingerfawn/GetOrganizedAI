@@ -4,7 +4,7 @@
             <button type="button" @click="open = !open">
                 <span>{{ svg('heroicon-o-chevron-double-left') }}</span>
             </button>
-            <span x-show="open" x-cloak class="select-profile">
+            <span x-show="open" x-cloak class="select-profile" x-transition:enter="transition-fade-in-right" x-transition:leave="transition-fade-out-left">
                 @livewire('switch-profiles', ['profiles' => $profiles, 'current_profile' => $current_profile])
             </span>
         </div>

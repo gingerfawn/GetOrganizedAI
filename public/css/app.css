@@ -12018,12 +12018,18 @@ svg {
   align-items: flex-end;
   height: 15vh;
 }
+.site-header .site-header-note {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
 .site-header h1, .site-header .h1 {
   display: flex;
   margin: 0;
   font-weight: 800;
   font-size: 16px;
   padding-left: 30px;
+  width: 200px;
 }
 .site-header h2, .site-header .h2 {
   font-size: 24px;
@@ -12049,7 +12055,6 @@ svg {
 #container .side-nav-control {
   display: flex;
   align-items: flex-start;
-  margin-bottom: -25px;
 }
 #container .side-nav-control button {
   background-color: transparent;
@@ -12065,26 +12070,33 @@ svg {
   display: flex;
   flex-direction: column;
   min-width: 200px;
+  overflow-y: scroll;
+  padding-bottom: 200px;
 }
 #container .sideNavContainer .folder-container {
   overflow-y: scroll;
 }
 #container .sideNavContainer .add-new-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 10px;
+  width: 200px;
 }
 #container .sideNavContainer .add-new-container .add-new-button {
-  background: transparent;
+  background: #fff;
   font-weight: 800;
-  border: 1px solid #929292;
-  border-radius: 10px;
+  border: 1px solid #bcbcbc;
+  border-radius: 5px;
+  padding: 5px;
   width: 100%;
 }
 #container .sideNavContainer .add-new-container .add-new-button svg {
   display: inline;
+}
+#container .sideNavContainer .add-new-container .add-edit-container {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #929292;
+  padding: 5px;
 }
 #container .sideNavContainer .add-new-container .add-edit-container div {
   border-bottom: solid 1px #c6c6c6;
@@ -12131,9 +12143,12 @@ svg {
   flex-direction: column;
 }
 #container #main .scroll-history {
-  height: 50vh;
+  height: 57vh;
   overflow-y: scroll;
   flex-grow: 1;
+}
+#container #main .scroll-history .user-chat {
+  font-weight: 700;
 }
 #container #main .scroll-history .delete-chat-link {
   display: flex;
@@ -12182,6 +12197,14 @@ textarea:focus, input:focus, *:focus {
 
 div {
   padding: 5px;
+}
+
+div:first-child {
+  padding-top: 0px;
+}
+
+div:last-child {
+  padding-bottom: 0px;
 }
 
 .icon-small svg {

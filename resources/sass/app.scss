@@ -46,12 +46,18 @@ svg {
     justify-content: space-between;
     align-items: flex-end;
     height: 15vh;
+    .site-header-note {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+    }
     h1 {
         display: flex;
         margin: 0;
         font-weight: 800;
         font-size: 16px;
         padding-left: 30px;
+        width: 200px;
     }
     h2 {
         font-size: 24px;
@@ -78,7 +84,6 @@ svg {
     .side-nav-control{
         display: flex;
         align-items: flex-start;
-        margin-bottom: -25px;
         button {
             background-color: transparent;
             box-shadow: none;
@@ -95,28 +100,41 @@ svg {
         display: flex;
         flex-direction: column;
         min-width: 200px;
+        overflow-y: scroll;
+        padding-bottom: 200px;
+
         .folder-container {
             overflow-y: scroll;
         }
         
         .add-new-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            flex-grow: 1;
-            justify-content: flex-end;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: flex-start;
+            // flex-grow: 1;
+            // justify-content: flex-end;
+            position: absolute;
+            bottom: 10px;
+            width: 200px;
             .add-new-button {
-                background: transparent;
+                background: #fff;
                 font-weight: 800;
-                border: 1px solid #929292;
-                border-radius: 10px;
+                border: 1px solid #bcbcbc;
+                border-radius: 5px;
+                padding: 5px;
                 width: 100%;
                 svg{
                     display: inline;
                 }
             }
-            .add-edit-container div{
-                border-bottom: solid 1px #c6c6c6;
+            .add-edit-container {
+                background-color: #fff;
+                border-radius: 5px;
+                border: 1px solid #929292;
+                padding: 5px;
+                div{
+                    border-bottom: solid 1px #c6c6c6;
+                }
             }
             .add-edit-container div:last-child{
                 border-bottom: none;
@@ -165,9 +183,12 @@ svg {
             flex-direction: column;
         }
         .scroll-history {
-            height: 50vh;
+            height: 57vh;
             overflow-y: scroll;
             flex-grow: 1;
+            .user-chat {
+                font-weight: 700;
+            }
             .delete-chat-link{
                 display: flex;
                 align-self: flex-end;
@@ -220,6 +241,13 @@ textarea:focus, input:focus, *:focus {
 
 div {
     padding: 5px;
+}
+
+div:first-child{
+    padding-top: 0px;
+}
+div:last-child{
+    padding-bottom: 0px;
 }
 
 .icon-small svg {
