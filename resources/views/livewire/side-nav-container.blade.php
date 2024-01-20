@@ -1,9 +1,16 @@
 <div>
     <div x-data="{ open: window.innerWidth > 768 }">
-        <button type="button" @click="open = !open">Toggle Menu</button>
+        <div class="side-nav-control">
+            <button type="button" @click="open = !open">
+                <span>{{ svg('heroicon-o-chevron-double-left') }}</span>
+            </button>
+            <span x-show="open" x-cloak>
+                @livewire('switch-profiles', ['profiles' => $profiles, 'current_profile' => $current_profile])
+            </span>
+        </div>
+
             <div wire:init="initialize" x-show="open" x-cloak>
                 <div class="sideNavContainer">
-                    @livewire('switch-profiles', ['profiles' => $profiles, 'current_profile' => $current_profile])
                     @livewire('side-nav', ['profiles' => $profiles, 
                                             'current_profile' => $current_profile, 
                                             'folders' => $folders,
