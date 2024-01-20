@@ -1,5 +1,5 @@
 <div>
-<div>
+<div class="folder-container">
     @isset($current_profile)
     @isset($folders)
         @foreach($folders as $folder)
@@ -9,7 +9,7 @@
             @isset($notes)
                 @foreach($notes as $note)
                     @if($note->folder_id == $folder->id)
-                    <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}">
+                    <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}" class="side-nav-note">
                         <a draggable='true' href="/?note={{ $note->id }}">{{$note->name}}</a> 
                     </div>
                     @endif
@@ -24,7 +24,7 @@
                 @isset($notes)
                 @foreach($notes as $note)
                     @if($note->folder_id == $draft_folder->id)
-                    <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}">
+                    <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}" class="side-nav-note">
                         <a draggable="false" href="/?note={{ $note->id }}">{{$note->name}}</a> 
                     </div>
                     @endif

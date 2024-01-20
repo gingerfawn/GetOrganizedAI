@@ -11977,6 +11977,33 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+/* Custom scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+/* Custom scrollbar thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Custom scrollbar button */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
 svg {
   display: inline;
   color: #929292;
@@ -12027,12 +12054,20 @@ svg {
 #container .side-nav-control button {
   background-color: transparent;
   box-shadow: none;
+  padding-top: 5px;
+}
+#container .side-nav-control .select-profile {
+  display: flex;
+  flex-grow: 1;
 }
 #container .sideNavContainer {
   height: 100%;
   display: flex;
   flex-direction: column;
   min-width: 200px;
+}
+#container .sideNavContainer .folder-container {
+  overflow-y: scroll;
 }
 #container .sideNavContainer .add-new-container {
   display: flex;
@@ -12044,9 +12079,18 @@ svg {
 #container .sideNavContainer .add-new-container .add-new-button {
   background: transparent;
   font-weight: 800;
+  border: 1px solid #929292;
+  border-radius: 10px;
+  width: 100%;
 }
 #container .sideNavContainer .add-new-container .add-new-button svg {
   display: inline;
+}
+#container .sideNavContainer .add-new-container .add-edit-container div {
+  border-bottom: solid 1px #c6c6c6;
+}
+#container .sideNavContainer .add-new-container .add-edit-container div:last-child {
+  border-bottom: none;
 }
 #container .sideNavContainer .bg-yellow-100 {
   background: rgb(160, 160, 160);
@@ -12057,9 +12101,18 @@ svg {
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
+#container .sideNavContainer .side-nav-folder .side-nav-note {
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
 #container .sideNavContainer .side-nav-folder a {
   font-weight: 400;
+  padding: 5px;
   padding-left: 20px;
+  display: block;
+  background-color: var(--bs-body-bg);
+  border-radius: 15px;
 }
 #container .sideNavContainer .side-nav-folder svg {
   height: 16px;
@@ -12069,7 +12122,13 @@ svg {
   display: inline;
 }
 #container #main {
-  width: 80vw;
+  display: flex;
+  flex-grow: 1;
+}
+#container #main div {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
 #container #main .scroll-history {
   height: 50vh;
@@ -12093,7 +12152,15 @@ svg {
 #container #main .ai-form-footer {
   border-top: 1px solid gray;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+#container #main .ai-form-footer .tos-container {
+  flex-direction: row;
+  align-items: center;
+}
+#container #main .ai-form-footer .tos-container a {
+  padding: 5px;
 }
 #container #main .ai-form-footer .crud-icon {
   height: 30px;

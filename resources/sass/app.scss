@@ -7,6 +7,33 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom scrollbar track */
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  /* Custom scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  
+  /* Custom scrollbar thumb hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
+  /* Custom scrollbar button */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
 svg {
     display: inline;
     color: #929292;
@@ -55,6 +82,11 @@ svg {
         button {
             background-color: transparent;
             box-shadow: none;
+            padding-top: 5px;
+        }
+        .select-profile{
+            display: flex;
+            flex-grow: 1;
         }
     }
 
@@ -63,6 +95,9 @@ svg {
         display: flex;
         flex-direction: column;
         min-width: 200px;
+        .folder-container {
+            overflow-y: scroll;
+        }
         
         .add-new-container {
             display: flex;
@@ -73,10 +108,20 @@ svg {
             .add-new-button {
                 background: transparent;
                 font-weight: 800;
+                border: 1px solid #929292;
+                border-radius: 10px;
+                width: 100%;
                 svg{
                     display: inline;
                 }
             }
+            .add-edit-container div{
+                border-bottom: solid 1px #c6c6c6;
+            }
+            .add-edit-container div:last-child{
+                border-bottom: none;
+            }
+
         }
 
         .bg-yellow-100{
@@ -88,11 +133,20 @@ svg {
             border-bottom: 1px solid #929292;
             padding-bottom: 5px;
             margin-bottom: 5px;
+            .side-nav-note{
+                background-color: transparent;
+                padding: 0px;
+                margin: 0px;
+            }
             a {
                 font-weight: 400;
+                padding: 5px;
                 padding-left: 20px;
+                display: block;
+                background-color: var(--bs-body-bg);
+                border-radius: 15px;
             }
-            svg{
+            svg {
                 height: 16px;
                 padding-left: 8px;
                 padding-bottom: 5px;
@@ -103,7 +157,13 @@ svg {
     }
 
     #main {
-        width: 80vw;
+        display: flex;
+        flex-grow: 1;
+        div {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+        }
         .scroll-history {
             height: 50vh;
             overflow-y: scroll;
@@ -126,7 +186,15 @@ svg {
         .ai-form-footer {
             border-top: 1px solid gray;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
+            .tos-container {
+                flex-direction: row;
+                align-items: center;
+                a {
+                    padding: 5px;
+                }
+            }
             .crud-icon {
                 height: 30px; 
                 width: 30px;
@@ -158,3 +226,5 @@ div {
     height: 10px;
     display: inline;
 }
+
+
