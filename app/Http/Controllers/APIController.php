@@ -57,7 +57,7 @@ class APIController extends Controller
 
         //IF NOTE EXISTS ELSE CREATE NOTE
         if(isset($request->note) && trim($request->note != '')){
-            $current_note = Notes::where('id', $request->note)->first();
+            $current_note = Notes::where('id', $request->note)->whereIn('folder_id', $folder_ids)->first();
             if($request->exists('note_name') && trim($request->note_name) != ''){
                 $current_note->name = ucwords($request->note_name);
                 $current_note->save();
