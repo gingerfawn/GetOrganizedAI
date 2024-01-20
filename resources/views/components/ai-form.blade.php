@@ -17,7 +17,7 @@
     @foreach($history as $chat_history)
     @if($chat_history->is_AI_resp == 'user')
         <div class="card">
-        <a href="/delete-chat?chat_id={{$chat_history->id}}">X</a>
+        <a href="/delete-chat?chat_id={{$chat_history->id}}" class="delete-chat-link">{{ svg('ri-close-fill') }}</a>
         <div>{{ $chat_history->chat }}</div>
         <div>{{$chat_history->is_AI_resp}}</div>
     @else

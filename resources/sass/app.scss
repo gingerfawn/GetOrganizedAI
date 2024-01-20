@@ -42,9 +42,15 @@ svg {
     display: flex;
     flex-direction: row;
     flex: 1;
+    .side-nav-container{
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+    }
 
     .side-nav-control{
         display: flex;
+        align-items: flex-start;
         margin-bottom: -25px;
         button {
             background-color: transparent;
@@ -59,7 +65,18 @@ svg {
         min-width: 200px;
         
         .add-new-container {
-            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-grow: 1;
+            justify-content: flex-end;
+            .add-new-button {
+                background: transparent;
+                font-weight: 800;
+                svg{
+                    display: inline;
+                }
+            }
         }
 
         .bg-yellow-100{
@@ -91,6 +108,10 @@ svg {
             height: 50vh;
             overflow-y: scroll;
             flex-grow: 1;
+            .delete-chat-link{
+                display: flex;
+                align-self: flex-end;
+            }
         }
         .gemini_submit {
             width: 100%;
