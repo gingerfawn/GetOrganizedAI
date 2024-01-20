@@ -9,7 +9,12 @@ import { createApp } from 'vue';
 
 import jQuery from 'jquery';
 import 'livewire-sortable';
+import 'alpinejs';
+
+window.Alpine = Alpine;
 window.$ = jQuery;
+
+Alpine.start();
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin

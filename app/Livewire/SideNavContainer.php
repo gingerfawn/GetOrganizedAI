@@ -15,7 +15,7 @@ class SideNavContainer extends Component
     public $note_id;
     public $draft_folder;
     public $collapsed;
-    public $innerWidth;
+    public $screenSize;
 
     public function initialize(){
             $this->collapsed = false;
