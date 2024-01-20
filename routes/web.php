@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\FoldersController;
 use App\Http\Controllers\ProfileController;
@@ -51,6 +52,7 @@ Route::post('/add-new-folder', [FoldersController::class, 'addNew']);
 Route::post('/add-new-profile', [ProfileController::class, 'addNew']);
 
 Route::post('/delete-note', [NotesController::class, 'deleteNote']);
+Route::get('/delete-chat', [ChatsController::class, 'deleteChat']);
 
 Route::post('/edit-delete-profiles-folders', [ProfileController::class, 'editDeleteProfilesFolders']);
 
