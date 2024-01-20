@@ -45,7 +45,3 @@ import ExampleComponent from './components/ExampleComponent.vue';
  */
 
 // app.mount('#app');
-
-$(function(){
-   
- });

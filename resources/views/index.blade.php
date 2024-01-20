@@ -3,16 +3,17 @@
 <div id="container">
     @auth
     <div id="sideNav">
-        @include('components.side-nav')
+    @livewire('side-nav-container', ['profiles' => $profiles, 
+    'current_profile' => $current_profile, 
+    'folders' => $folders,
+    'notes' => $notes,
+    'draft_folder' => $draft_folder])
     </div>
 
     <div id="main">            
         @include('components.ai-form')
     </div>
 
-    {{-- <div id="sideGallery">
-        @include('components.side-media-gallery')
-    </div> --}}
     @endauth
 </div>
 @include('components.footer')
