@@ -13,6 +13,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -75,3 +77,10 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/reset-db', [AdminController::class, 'resetDatabase']);
+
+Route::post('/payments/pay', [PaymentController::class, 'pay'])->name('pay');
+Route::get('/payments/approval', [PaymentController::class, 'approval'])->name('approval');
+Route::get('/payments/cancelled', [PaymentController::class, 'cancelled'])->name('cancelled');
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');

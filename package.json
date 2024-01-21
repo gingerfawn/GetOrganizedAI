@@ -26,6 +26,7 @@
     "dependencies": {
         "alpinejs": "^3.13.3",
         "jquery": "^3.7.1",
+        "popper.js": "^1.16.1",
         "sass": "^1.69.7",
         "sass-loader": "^13.3.3"
     }

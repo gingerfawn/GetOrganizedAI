@@ -4,12 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <script type="text/javascript" src="{{ mix('js/bootstrap.js')}}"></script>
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-LVJRDT1H76"></script>
 

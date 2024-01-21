@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/bootstrap.js', 'public/js').vue()
+    .copy('node_modules/popper.js/dist/umd/popper.js', 'public/js/popper.js')
     .sass('resources/sass/app.scss', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
         //
