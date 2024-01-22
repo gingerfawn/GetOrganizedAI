@@ -53,11 +53,7 @@ svg {
   }
 
 .site-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 15vh;
+    padding: 30px;
     .site-header-note {
         display: flex;
         flex-grow: 1;
@@ -83,7 +79,7 @@ svg {
     }
 }
 
-#container {
+.main-layout {
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -91,12 +87,12 @@ svg {
         display: flex;
         flex-direction: column;
         height: 80vh;
+        padding-right: 30px;
     }
 
     .side-nav-control{
         display: flex;
         align-items: flex-start;
-        margin-bottom: -5px;
         box-shadow: 5px 10px 10px var(--bs-body-bg);
 
         button {
@@ -255,16 +251,16 @@ textarea:focus, input:focus, *:focus {
     // border: 1px solid #5f27cd;
 }
 
-div {
-    padding: 5px;
-}
+// div {
+//     padding: 5px;
+// }
 
-div:first-child{
-    padding-top: 0px;
-}
-div:last-child{
-    padding-bottom: 0px;
-}
+// div:first-child{
+//     padding-top: 0px;
+// }
+// div:last-child{
+//     padding-bottom: 0px;
+// }
 
 .icon-small svg {
     height: 10px;

@@ -1,6 +1,8 @@
 @include('components.header')
+@include('components.navbar')
 @include('components.site-header')
-<div id="container">
+<div class="container">
+    <div class="main-layout">
     @auth
     <div id="sideNav">
         @livewire('side-nav-container', ['profiles' => $profiles, 
@@ -15,5 +17,6 @@
     </div>
 
     @endauth
+</div>
 </div>
 @include('components.footer')

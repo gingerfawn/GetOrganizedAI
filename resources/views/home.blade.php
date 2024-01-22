@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-auto">
                                 <label>$20 a month</label>
-                                <input type="hidden" value="12" name="value" class="form-control">
+                                <input type="hidden" value="20" name="value" class="form-control">
                             </div>
                             <div class="col-auto">
                                 <label>Currency</label>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label>Select the desirec payment platform</label>
+                                <label>Select the desired payment platform</label>
                                 <div class="form-group" id="toggler">
                                     <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
                                         @foreach($paymentPlatforms as $paymentPlatform)
@@ -72,15 +72,15 @@
                             </ul>
                         </div>
                     @endif
-                    {{-- @if ($session->has('success'))
+                    @if (session()->has('success'))
                     <div class="alert alert-success" role="alert">
                         <ul>
-                            @foreach($session->get('success') as $message)
+                            @foreach(session()->get('success') as $message)
                                 <li>{{ $message }}</li>
                             @endforeach
                         </ul>
                     </div>
-                    @endif --}}
+                    @endif
                 </div>
             </div>
         </div>

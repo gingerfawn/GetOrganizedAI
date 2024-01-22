@@ -12023,11 +12023,7 @@ svg {
 }
 
 .site-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 15vh;
+  padding: 30px;
 }
 .site-header .site-header-note {
   display: flex;
@@ -12053,32 +12049,32 @@ svg {
   display: inline;
 }
 
-#container {
+.main-layout {
   display: flex;
   flex-direction: row;
   flex: 1;
 }
-#container .side-nav-container {
+.main-layout .side-nav-container {
   display: flex;
   flex-direction: column;
   height: 80vh;
+  padding-right: 30px;
 }
-#container .side-nav-control {
+.main-layout .side-nav-control {
   display: flex;
   align-items: flex-start;
-  margin-bottom: -5px;
   box-shadow: 5px 10px 10px var(--bs-body-bg);
 }
-#container .side-nav-control button {
+.main-layout .side-nav-control button {
   background-color: transparent;
   box-shadow: none;
   padding-top: 5px;
 }
-#container .side-nav-control .select-profile {
+.main-layout .side-nav-control .select-profile {
   display: flex;
   flex-grow: 1;
 }
-#container .sideNavContainer {
+.main-layout .sideNavContainer {
   padding-top: 17px;
   height: 100%;
   display: flex;
@@ -12087,17 +12083,17 @@ svg {
   overflow-y: scroll;
   padding-bottom: 200px;
 }
-#container .sideNavContainer .folder-container {
+.main-layout .sideNavContainer .folder-container {
   overflow-y: scroll;
 }
-#container .sideNavContainer .add-new-container {
+.main-layout .sideNavContainer .add-new-container {
   position: absolute;
   bottom: 10px;
   width: 200px;
   box-shadow: 20px -10px 20px var(--bs-body-bg);
   padding-top: 0;
 }
-#container .sideNavContainer .add-new-container .add-new-button {
+.main-layout .sideNavContainer .add-new-container .add-new-button {
   background: #fff;
   font-weight: 800;
   border: 1px solid #bcbcbc;
@@ -12105,36 +12101,36 @@ svg {
   padding: 5px;
   width: 100%;
 }
-#container .sideNavContainer .add-new-container .add-new-button svg {
+.main-layout .sideNavContainer .add-new-container .add-new-button svg {
   display: inline;
 }
-#container .sideNavContainer .add-new-container .add-edit-container {
+.main-layout .sideNavContainer .add-new-container .add-edit-container {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #c6c6c6;
   padding: 5px;
 }
-#container .sideNavContainer .add-new-container .add-edit-container div {
+.main-layout .sideNavContainer .add-new-container .add-edit-container div {
   border-bottom: solid 1px #c6c6c6;
 }
-#container .sideNavContainer .add-new-container .add-edit-container div:last-child {
+.main-layout .sideNavContainer .add-new-container .add-edit-container div:last-child {
   border-bottom: none;
 }
-#container .sideNavContainer .bg-yellow-100 {
+.main-layout .sideNavContainer .bg-yellow-100 {
   background: rgb(160, 160, 160);
 }
-#container .sideNavContainer .side-nav-folder {
+.main-layout .sideNavContainer .side-nav-folder {
   font-weight: 800;
   border-bottom: 1px solid #929292;
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
-#container .sideNavContainer .side-nav-folder .side-nav-note {
+.main-layout .sideNavContainer .side-nav-folder .side-nav-note {
   background-color: transparent;
   padding: 0px;
   margin: 0px;
 }
-#container .sideNavContainer .side-nav-folder a {
+.main-layout .sideNavContainer .side-nav-folder a {
   font-weight: 400;
   padding: 5px;
   padding-left: 20px;
@@ -12142,59 +12138,59 @@ svg {
   background-color: var(--bs-body-bg);
   border-radius: 15px;
 }
-#container .sideNavContainer .side-nav-folder svg {
+.main-layout .sideNavContainer .side-nav-folder svg {
   height: 16px;
   padding-left: 8px;
   padding-bottom: 5px;
   padding-right: 3px;
   display: inline;
 }
-#container #main {
+.main-layout #main {
   display: flex;
   flex-grow: 1;
 }
-#container #main div {
+.main-layout #main div {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
-#container #main .scroll-history {
+.main-layout #main .scroll-history {
   height: 57vh;
   overflow-y: scroll;
   flex-grow: 1;
 }
-#container #main .scroll-history .user-chat {
+.main-layout #main .scroll-history .user-chat {
   font-weight: 700;
   font-size: 16px;
 }
-#container #main .scroll-history .delete-chat-link {
+.main-layout #main .scroll-history .delete-chat-link {
   display: flex;
   align-self: flex-end;
 }
-#container #main .gemini_submit {
+.main-layout #main .gemini_submit {
   width: 100%;
   padding: 5px;
   margin: 0;
   margin-top: -10px;
 }
-#container #main textarea.chatBox {
+.main-layout #main textarea.chatBox {
   width: 100%;
   height: 100px;
 }
-#container #main .ai-form-footer {
+.main-layout #main .ai-form-footer {
   border-top: 1px solid gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-#container #main .ai-form-footer .tos-container {
+.main-layout #main .ai-form-footer .tos-container {
   flex-direction: row;
   align-items: center;
 }
-#container #main .ai-form-footer .tos-container a {
+.main-layout #main .ai-form-footer .tos-container a {
   padding: 5px;
 }
-#container #main .ai-form-footer .crud-icon {
+.main-layout #main .ai-form-footer .crud-icon {
   height: 30px;
   width: 30px;
   background-color: transparent;
@@ -12210,18 +12206,6 @@ input, textarea, select {
 
 textarea:focus, input:focus, *:focus {
   outline: none;
-}
-
-div {
-  padding: 5px;
-}
-
-div:first-child {
-  padding-top: 0px;
-}
-
-div:last-child {
-  padding-bottom: 0px;
 }
 
 .icon-small svg {
