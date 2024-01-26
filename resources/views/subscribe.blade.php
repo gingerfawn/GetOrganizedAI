@@ -5,25 +5,33 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card payment-form-no-radio">
-                <div class="card-header">{{ __('Payment Processing') }}</div>
+                <div class="card-header">Subscribe</div>
 
                 <div class="card-body">
-                    <form action="{{ route('pay') }}" method="POST" id="paymentForm">
+                    <form action="{{ route('subscribe.store') }}" method="POST" id="paymentForm">
                         @csrf
                         <div class="row">
-                            <div class="col-auto">
-                                <label>$20 a month</label>
-                                <input type="hidden" value="20" name="value" class="form-control">
+                            <div class="col">
+                                <label>Select your plan</label>
+                                <div class="form-group">
+                                    <div class="btn-group" data-bs-toggle="buttons">
+                                        @foreach($plans as $plan)
+                                            <label 
+                                                class='btn btn-outline-secondary rounded m-2 p-3'>
+                                            <input 
+                                                type="radio" 
+                                                name='plan'
+                                                value="{{ $plan->slug }}">
+                                            <p class="h2 font-weight-bold text-capitalize">{{ $plan->slug }}</p>
+                                            <p class="display-4 text-capitalize">
+                                                {{ $plan->visual_price }}
+                                            </p>
+                                        </label>
+                                        @endforeach
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="col-auto">
-                                <label>Currency</label>
-                                <select name="currency" >
-                                    @foreach($currencies as $currency)
-                                        <option value="{{$currency->iso}}" @if($currency->iso = 'usd') selected  @endif>{{strToUpper($currency->iso)}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <small class="text-muted">Muted text</small>
                         </div>
                         <div class="row">
                             <div class="col">
@@ -55,15 +63,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-auto">
-                                <p class="border-bottom border-primary rounded"> </p>
-                                @if(! optional(auth()->user())->hasActiveSubscription())
-                                    Would you like to have a discount every time?
-                                    <a href="{{ route('subscribe.show') }}">Subscribe</a>
-                                @else
-                                    You get 10% off as part of your subscription
-                                @endif
-                            </div>
                             <button type="submit" class="btn" id="payButton">Subscribe</button>
                         </div>
                     </form>

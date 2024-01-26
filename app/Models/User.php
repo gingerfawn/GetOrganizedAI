@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Subscription;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,4 +45,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function subscription(){
+        return $this->hasOne(subscription::class);
+    }
+
+    public function hasActiveSubscription(){
+        // return true;
+        return optional($this->subscription)->isActive() ?? false;
+    }
+
 }

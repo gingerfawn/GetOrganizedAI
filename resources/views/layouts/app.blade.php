@@ -32,7 +32,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
 
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <input type="submit" name="logout">
+                        </form>
+                        @if (! optional(auth()->user())->hasActiveSubscription())
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary" href="{{ route('subscribe.show')}}">Subscribe</a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,6 +63,7 @@
                                 </li>
                             @endif
                         @else
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-target="#admin-dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
@@ -63,15 +76,14 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+
                                 </div>
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
+
         </nav>
 
         <main class="py-4">

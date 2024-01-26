@@ -197,9 +197,15 @@ svg {
             height: 57vh;
             overflow-y: scroll;
             flex-grow: 1;
+            .card{
+                padding: 10px 20px;
+            }
             .user-chat {
                 font-weight: 700;
                 font-size: 16px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 5px;
             }
             .delete-chat-link{
                 display: flex;
@@ -237,6 +243,17 @@ svg {
         }
     }
 
+}
+
+.payment-form-no-radio {
+    input[type='radio']{
+        display: none;
+    }
+
+    label:has(input[type='radio']:checked) {
+        background-color: var(--bs-btn-hover-bg);
+        color: #fff;
+    }
 }
 
 input, textarea, select {

@@ -12159,9 +12159,15 @@ svg {
   overflow-y: scroll;
   flex-grow: 1;
 }
+.main-layout #main .scroll-history .card {
+  padding: 10px 20px;
+}
 .main-layout #main .scroll-history .user-chat {
   font-weight: 700;
   font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
 }
 .main-layout #main .scroll-history .delete-chat-link {
   display: flex;
@@ -12195,6 +12201,14 @@ svg {
   width: 30px;
   background-color: transparent;
   color: gray;
+}
+
+.payment-form-no-radio input[type=radio] {
+  display: none;
+}
+.payment-form-no-radio label:has(input[type=radio]:checked) {
+  background-color: var(--bs-btn-hover-bg);
+  color: #fff;
 }
 
 input, textarea, select {

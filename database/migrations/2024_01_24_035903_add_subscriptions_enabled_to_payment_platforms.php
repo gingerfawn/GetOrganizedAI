@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plans', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('slug')->unique();
-            $table->integer('price')->unsigned();
-            $table->integer('duration_in_days');
-            $table->timestamps();
+        Schema::table('payment_platforms', function (Blueprint $table) {
+            $table->boolean('subscriptions_enabled')->default(true);
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plans');
+        Schema::table('payment_platforms', function (Blueprint $table) {
+            $table->dropColumn('subscriptions_enabled');
+        });
     }
 };
