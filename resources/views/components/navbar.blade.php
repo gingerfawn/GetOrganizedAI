@@ -3,10 +3,6 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'GetOrganizedAI') }}
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            <input type="submit" value="logout">
-        </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,6 +11,12 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
 
+                @if(auth()->user())
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                    <input type="submit" value="Log Out">
+                </form>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -33,24 +35,35 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+
+                    <div x-data="{ open: false }">
+                        <a class="nav-link" @click="open = !open">
                             {{ Auth::user()->name }}
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-
+                        <div x-show="open" @click.away=" open = false " class="nav-dropdown shadow-sm">
+                            <ul>
+                                <li class="nav-link">
+                                    <a href="{{ route('home') }}">Home</a>
+                                </li>                                
+                                @if (auth()->user() && !optional(auth()->user())->hasActiveSubscription())
+                                <li class="nav-link">
+                                    <a href="{{ route('subscribe.show')}}">Subscribe</a>
+                                </li>
+                                @endif
+                                <li class="nav-link">
+                                <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                 {{ __('Logout') }}
+                                 </a>
+                                </li>
+                            </ul>
                         </div>
-
-                    </li>
+                    </div>
                 @endguest
             </ul>
         </div>
     </div>
+
 </nav>

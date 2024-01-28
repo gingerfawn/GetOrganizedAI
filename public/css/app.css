@@ -12227,6 +12227,14 @@ textarea:focus, input:focus, *:focus {
   display: inline;
 }
 
+.nav-dropdown {
+  position: absolute;
+  background-color: #fff;
+}
+.nav-dropdown ul {
+  padding: 1em;
+}
+
 html { 
     line-height:1.15;
     -webkit-text-size-adjust:100%
