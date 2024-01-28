@@ -12230,9 +12230,36 @@ textarea:focus, input:focus, *:focus {
 .nav-dropdown {
   position: absolute;
   background-color: #fff;
+  z-index: 10;
 }
 .nav-dropdown ul {
   padding: 1em;
+}
+.nav-dropdown .mobile-only {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .nav-dropdown {
+    width: 100%;
+    left: 0;
+    padding: 1em;
+  }
+  .nav-dropdown svg {
+    display: inline;
+    height: 12px;
+  }
+  .nav-dropdown .side-nav-note {
+    padding-left: 1em;
+  }
+  .nav-dropdown .mobile-only {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #sideNav {
+    display: none;
+  }
 }
 
 html { 

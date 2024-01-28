@@ -287,8 +287,35 @@ textarea:focus, input:focus, *:focus {
 .nav-dropdown{
     position: absolute;
     background-color: #fff;
+    z-index: 10;
     ul{
         padding: 1em;
+    }
+
+    .mobile-only {
+        display: none
+    }
+
+    @media screen and ( max-width: 800px){
+        width: 100%;
+        left: 0;
+        padding: 1em;
+        svg {
+            display: inline;
+            height: 12px;
+        }
+        .side-nav-note {
+            padding-left: 1em;
+        }
+        .mobile-only {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 800px){
+    #sideNav {
+        display: none;
     }
 }
 

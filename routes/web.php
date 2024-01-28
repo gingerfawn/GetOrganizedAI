@@ -43,10 +43,6 @@ Route::any('/media-gallery', [MediaController::class, 'view']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/login', [LoginController::class, 'getLogin']);
 
-Route::post('/sign-up', [SignUpController::class, 'signUp']);
-Route::get('/sign-up', function(){
-    return view('signup');
-});
 
 // Route::any('/edit-note', [NotesController::class, 'editNote']);
 // Route::any('/edit-note', [APIController::class, 'show']);

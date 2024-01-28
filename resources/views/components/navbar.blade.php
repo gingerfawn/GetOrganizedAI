@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'GetOrganizedAI') }}
@@ -42,6 +42,9 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div x-show="open" @click.away=" open = false " class="nav-dropdown shadow-sm">
+                        <div class="mobile-only">
+                            @include('components.side-nav')
+                        </div>
                             <ul>
                                 <li class="nav-link">
                                     <a href="{{ route('home') }}">Home</a>
