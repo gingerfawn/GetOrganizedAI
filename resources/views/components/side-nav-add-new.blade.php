@@ -7,17 +7,14 @@
           
             <div>
                 <a class="icon-small" data-bs-toggle="modal" data-bs-target="#addNewFolder">{{ svg('ri-add-fill') }}New Folder</a>
-                @include('popups.add-new-folder')
             </div>
           
             <div>
                 <a class="icon-small" data-bs-toggle="modal" data-bs-target="#addNewProfile">{{ svg('ri-add-fill') }} New Profile</a>
-                @include('popups.add-new-profile')
             </div>
           
             <div>
                 <a class="icon-small" data-bs-toggle="modal" data-bs-target="#editProfilesFolders">{{ svg('gmdi-edit') }}Profiles & Folders</a>
-                @include('popups.edit-profiles-folders')
             </div>
     </div>
     <button @click="visible = !visible" class="add-new-button">{{ svg('ri-add-fill') }} Add or Edit</button>

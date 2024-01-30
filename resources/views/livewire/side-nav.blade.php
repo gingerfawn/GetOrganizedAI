@@ -5,7 +5,7 @@
         @foreach($folders as $folder)
         @if($folder->profile_id == $current_profile->id)
         <div folder_id="{{$folder->id}}"  drag-folder draggable="true" wire:key="folder-{{ $folder->id }}" class="side-nav-folder">
-            <div class="folder-name">{{ svg('fas-folder') }}{{$folder->name}}</div>
+            <div class="folder-name nav-link">{{ svg('fas-folder') }}{{$folder->name}}</div>
             @isset($notes)
                 @foreach($notes as $note)
                     @if($note->folder_id == $folder->id)
