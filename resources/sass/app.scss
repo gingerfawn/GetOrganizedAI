@@ -329,6 +329,7 @@ textarea:focus, input:focus, *:focus {
 
         .stop_click a{
             pointer-events: none;
+            touch-action: none;
         }
     }
 }

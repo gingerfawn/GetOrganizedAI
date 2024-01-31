@@ -12267,6 +12267,7 @@ textarea:focus, input:focus, *:focus {
   }
   .nav-dropdown .stop_click a {
     pointer-events: none;
+    touch-action: none;
   }
 }
 
