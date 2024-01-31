@@ -5,28 +5,28 @@
  */
 
 import './bootstrap';
-import { createApp } from 'vue';
+// import { createApp } from 'vue';
 
 import jQuery from 'jquery';
 import 'livewire-sortable';
-import 'alpinejs';
+// import 'alpinejs';
 
-window.Alpine = Alpine;
-window.$ = jQuery;
+// window.Alpine = Alpine;
+// window.$ = jQuery;
 
-Alpine.start();
+// Alpine.start();
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
  */
-import ExampleComponent from './components/ExampleComponent.vue';
-    const app = createApp({
-        components: {
-            ExampleComponent        
-        }
-    }).mount('#app');
+// import ExampleComponent from './components/ExampleComponent.vue';
+//     const app = createApp({
+//         components: {
+//             ExampleComponent        
+//         }
+//     }).mount('#app');
 
 
 // app.component('example-component', ExampleComponent);

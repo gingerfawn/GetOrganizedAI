@@ -98,7 +98,6 @@
             });
     
             dragFolder.querySelectorAll('[drag-note]').forEach(dragNote => {
-                // console.log(dragNote);
                 dragNote.addEventListener('dragstart', e => {
                     e.target.classList.add('stop_click');
                     $note_id = e.target.closest('[drag-item]').getAttribute('drag-item');

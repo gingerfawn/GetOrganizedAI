@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @livewireStyles
 
-        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-        <script type="text/javascript" src="{{ mix('js/bootstrap.js')}}"></script>
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
         <!-- Google tag (gtag.js) -->
