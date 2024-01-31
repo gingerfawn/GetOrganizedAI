@@ -327,7 +327,7 @@ textarea:focus, input:focus, *:focus {
 
         //stop pointer events while dragging
 
-        .stop_click, .stop_click a{
+        .stop_click a{
             pointer-events: none;
         }
     }
