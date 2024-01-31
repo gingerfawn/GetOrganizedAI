@@ -324,6 +324,12 @@ textarea:focus, input:focus, *:focus {
         .mobile-only {
             display: block;
         }
+
+        //stop pointer events while dragging
+
+        .stop_click, .stop_click a{
+            pointer-events: none;
+        }
     }
 }
 

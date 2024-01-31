@@ -12265,6 +12265,9 @@ textarea:focus, input:focus, *:focus {
   .nav-dropdown .mobile-only {
     display: block;
   }
+  .nav-dropdown .stop_click, .nav-dropdown .stop_click a {
+    pointer-events: none;
+  }
 }
 
 @media screen and (max-width: 800px) {

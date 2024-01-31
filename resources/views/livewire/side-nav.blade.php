@@ -54,6 +54,7 @@
                 e.preventDefault();
                 var note_id = e.dataTransfer.getData('note_id');
                 console.log('drop', e.dataTransfer);
+                e.dataTransfer.classList.remove('stop_click');
                 let folder_id = '';
                 let notesArray = [];
                 if(e.target.hasAttribute('folder_id')){
@@ -99,7 +100,7 @@
             dragFolder.querySelectorAll('[drag-note]').forEach(dragNote => {
                 // console.log(dragNote);
                 dragNote.addEventListener('dragstart', e => {
-                    // e.target.setAttribute('dragging', true);
+                    e.target.classList.add('stop_click');
                     $note_id = e.target.closest('[drag-item]').getAttribute('drag-item');
                     e.dataTransfer.setData("note_id", $note_id);
                 })
