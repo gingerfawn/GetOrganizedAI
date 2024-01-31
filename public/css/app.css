@@ -12127,7 +12127,7 @@ svg {
 }
 .main-layout .sideNavContainer .side-nav-folder .side-nav-note {
   background-color: transparent;
-  padding: 0px;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   margin: 0px;
 }
 .main-layout .sideNavContainer .side-nav-folder a {
@@ -12248,8 +12248,19 @@ textarea:focus, input:focus, *:focus {
     display: inline;
     height: 12px;
   }
+  .nav-dropdown .folder-name, .nav-dropdown .side-nav-note, .nav-dropdown .add-new-container {
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  }
   .nav-dropdown .side-nav-note {
-    padding-left: 1em;
+    padding-left: 20px;
+  }
+  .nav-dropdown .folder-name {
+    font-weight: 700;
+  }
+  .nav-dropdown .add-new-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
   }
   .nav-dropdown .mobile-only {
     display: block;

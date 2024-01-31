@@ -32,7 +32,7 @@ use Illuminate\Routing\Middleware\Unsubscribed;
 
 // Route::get('/', [LoginController::class, 'loggedIn']);
 
-Route::any('/', [APIController::class, 'show']);
+Route::any('/', [APIController::class, 'show'])->name('index');
 Route::any('/media-gallery', [MediaController::class, 'view']);
 
 // Route::post('/songAPI', [APIController::class, 'show']);

@@ -42,9 +42,12 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div x-show="open" @click.away=" open = false " class="nav-dropdown shadow-sm">
-                        <div class="mobile-only">
-                            @include('components.side-nav')
-                        </div>
+                        
+                        @if (Route::currentRouteName() == 'index')
+                            <div class="mobile-only">
+                                @include('components.side-nav')
+                            </div>
+                        @endif
                             <ul>
                                 <li class="nav-link">
                                     <a href="{{ route('home') }}">Home</a>
