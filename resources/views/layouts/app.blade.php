@@ -14,7 +14,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('js/bootstrap.js')}}"></script>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('style')
 </head>
