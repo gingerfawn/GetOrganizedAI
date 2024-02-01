@@ -1,6 +1,7 @@
 @include('components.header')
 @include('components.navbar')
-@include('components.site-header')
+@include('components.site-header')      
+
 <div class="container">
     <div class="main-layout">
     @auth
@@ -12,7 +13,7 @@
         'draft_folder' => $draft_folder])
     </div>
 
-    <div id="main">            
+    <div id="main">      
         @include('components.ai-form')
     </div>
 

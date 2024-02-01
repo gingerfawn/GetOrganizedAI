@@ -12104,18 +12104,6 @@ svg {
 .main-layout .sideNavContainer .add-new-container .add-new-button svg {
   display: inline;
 }
-.main-layout .sideNavContainer .add-new-container .add-edit-container {
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c6c6c6;
-  padding: 5px;
-}
-.main-layout .sideNavContainer .add-new-container .add-edit-container div {
-  border-bottom: solid 1px #c6c6c6;
-}
-.main-layout .sideNavContainer .add-new-container .add-edit-container div:last-child {
-  border-bottom: none;
-}
 .main-layout .sideNavContainer .bg-yellow-100 {
   background: rgb(160, 160, 160);
 }
@@ -12144,6 +12132,19 @@ svg {
   padding-bottom: 5px;
   padding-right: 3px;
   display: inline;
+}
+.main-layout .add-edit-container {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+}
+.main-layout .add-edit-container div {
+  border-bottom: solid 1px #c6c6c6;
+  padding: 12px;
+}
+.main-layout .add-edit-container div:last-child {
+  border-bottom: none;
 }
 .main-layout #main {
   display: flex;

@@ -50,7 +50,10 @@
         dragFolders.forEach(dragFolder => {
             // console.log('dragFolders', dragFolder)
             dragFolder.addEventListener('drop', e => {
-                document.querySelector('.stop_click').classList.remove('stop_click');
+                var stopClick = document.querySelector('.stop_click')
+                if(stopClick != undefined){
+                    stopClick.classList.remove('stop_click');
+                }
                 e.preventDefault();
                 var note_id = e.dataTransfer.getData('note_id');
                 console.log('drop', e.dataTransfer);
@@ -98,6 +101,8 @@
             });
     
             dragFolder.querySelectorAll('[drag-note]').forEach(dragNote => {
+
+
                 dragNote.addEventListener('dragstart', e => {
                     e.target.classList.add('stop_click');
                     $note_id = e.target.closest('[drag-item]').getAttribute('drag-item');

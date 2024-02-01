@@ -138,19 +138,6 @@ svg {
                     display: inline;
                 }
             }
-            .add-edit-container {
-                background-color: #fff;
-                border-radius: 5px;
-                border: 1px solid #c6c6c6;
-                padding: 5px;
-                div{
-                    border-bottom: solid 1px #c6c6c6;
-                }
-            }
-            .add-edit-container div:last-child{
-                border-bottom: none;
-            }
-
         }
 
         .bg-yellow-100{
@@ -183,6 +170,20 @@ svg {
                 display: inline;
             }
         }
+    }
+
+    .add-edit-container {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #c6c6c6;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+        div{
+            border-bottom: solid 1px #c6c6c6;
+            padding: 12px;
+        }
+    }
+    .add-edit-container div:last-child{
+        border-bottom: none;
     }
 
     #main {
