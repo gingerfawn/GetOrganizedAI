@@ -34,11 +34,8 @@ class SideNav extends Component
                 $get_notes[] = $this->draft_folder->id;
 
             $this->notes = Notes::whereIn('folder_id', $get_notes)->get();
-            // $this->redirect('/?'.$queryString);
-
         } 
-
-        $this->render();
+        // $this->render();
     }
 
     public function render()

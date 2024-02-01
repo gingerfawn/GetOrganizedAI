@@ -12076,6 +12076,7 @@ svg {
 }
 .main-layout .sideNavContainer {
   padding-top: 17px;
+  padding-left: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -12202,6 +12203,24 @@ svg {
   width: 30px;
   background-color: transparent;
   color: gray;
+}
+
+.add-new-container {
+  box-shadow: 20px -10px 20px var(--bs-body-bg);
+  padding-top: 0;
+}
+.add-new-container div {
+  padding: 12px;
+}
+.add-new-container .add-new-button {
+  font-weight: 800;
+  border: 1px solid #bcbcbc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+.add-new-container .add-new-button svg {
+  display: inline;
 }
 
 .payment-form-no-radio input[type=radio] {

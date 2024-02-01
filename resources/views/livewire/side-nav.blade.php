@@ -37,12 +37,12 @@
     <script>
         window.onload = setUpDragNDrop();
 
-        window.onload = (function(){
-            Livewire.on('moveNoteExecuted', function(){
-                setUpDragNDrop();
-            });
+        // window.onload = (function(){
+        //     Livewire.on('moveNoteExecuted', function(){
+        //         setUpDragNDrop();
+        //     });
 
-        })
+        // })
         
         function setUpDragNDrop (){
             console.log('executed');
@@ -56,7 +56,8 @@
                 }
                 e.preventDefault();
                 var note_id = e.dataTransfer.getData('note_id');
-                console.log('drop', e.dataTransfer);
+                console.log('drop', e.dataTransfer.getData('note_id'));
+
                 // e.dataTransfer.classList.remove('stop_click');
                 let folder_id = '';
                 let notesArray = [];
@@ -66,7 +67,6 @@
                     // let component = Livewire.find(
                     //     e.target.closest('[wire\\:id]').getAttribute('wire:id');
                     // )
-                    // component.call('$refresh');
                     folder = e.target.closest('[folder_id]');
                     folder_id = folder.getAttribute('folder_id');
                     notesArray = Array.from(folder.querySelectorAll('[drag-item]')).map( note => note.getAttribute('drag-item'));
@@ -78,6 +78,7 @@
                 // console.log('params', params);
                 component.call('moveNote', note_id, folder_id, params);
                 e.dataTransfer.clearData();
+
             });
             dragFolder.addEventListener('dragstart', e => {
                 // console.log(e.target)
@@ -92,6 +93,7 @@
                 e.preventDefault();
             });
             dragFolder.addEventListener('dragleave', e => {
+                e.preventDefault()
                 e.target.classList.remove('bg-yellow-100');
 
                 // console.log(e.target)
@@ -133,6 +135,7 @@
                 })
     
                 dragNote.addEventListener('dragleave', e => {
+                    e.preventDefault()
                     e.target.classList.remove('bg-yellow-100');
                     // console.log('leave');
                 })

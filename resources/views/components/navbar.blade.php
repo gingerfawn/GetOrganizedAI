@@ -48,10 +48,7 @@
                                 @include('components.side-nav')
                             </div>
                         @endif
-                            <ul>
-                                <li class="nav-link">
-                                    <a href="{{ route('home') }}">Home</a>
-                                </li>                                
+                            <ul>                             
                                 @if (auth()->user() && !optional(auth()->user())->hasActiveSubscription())
                                 <li class="nav-link">
                                     <a href="{{ route('subscribe.show')}}">Subscribe</a>

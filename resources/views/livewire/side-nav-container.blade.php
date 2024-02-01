@@ -9,7 +9,7 @@
             </span>
         </div>
 
-            <div class="sideNavContainer" wire:init="initialize" x-show="open" x-cloak>
+            <div class="sideNavContainer" wire:init="initialize" x-show="open" x-cloak >
                     @livewire('side-nav', ['profiles' => $profiles, 
                                             'current_profile' => $current_profile, 
                                             'folders' => $folders,
