@@ -53,7 +53,7 @@ svg {
   }
 
 .site-header {
-    padding: 30px;
+    padding: 10px;
     .site-header-note {
         display: flex;
         flex-grow: 1;
@@ -106,6 +106,8 @@ svg {
         }
     }
 
+#sideNav {
+    padding-top: 30px;
     .sideNavContainer {
         padding-top: 17px;
         padding-left: 20px;
@@ -172,6 +174,7 @@ svg {
             }
         }
     }
+}
 
     .add-edit-container {
         background-color: #fff;
@@ -196,9 +199,10 @@ svg {
             flex-direction: column;
         }
         .scroll-history {
-            height: 57vh;
+            height: 54vh;
             overflow-y: scroll;
             flex-grow: 1;
+            border-bottom: 1px solid #ddd;
             .card{
                 padding: 10px 20px;
             }
@@ -363,3 +367,9 @@ textarea:focus, input:focus, *:focus {
     }
 }
 
+.blue-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
+  }

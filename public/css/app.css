@@ -12023,7 +12023,7 @@ svg {
 }
 
 .site-header {
-  padding: 30px;
+  padding: 10px;
 }
 .site-header .site-header-note {
   display: flex;
@@ -12074,7 +12074,10 @@ svg {
   display: flex;
   flex-grow: 1;
 }
-.main-layout .sideNavContainer {
+.main-layout #sideNav {
+  padding-top: 30px;
+}
+.main-layout #sideNav .sideNavContainer {
   padding-top: 17px;
   padding-left: 20px;
   height: 100%;
@@ -12084,17 +12087,17 @@ svg {
   overflow-y: scroll;
   padding-bottom: 200px;
 }
-.main-layout .sideNavContainer .folder-container {
+.main-layout #sideNav .sideNavContainer .folder-container {
   overflow-y: scroll;
 }
-.main-layout .sideNavContainer .add-new-container {
+.main-layout #sideNav .sideNavContainer .add-new-container {
   position: absolute;
   bottom: 10px;
   width: 200px;
   box-shadow: 20px -10px 20px var(--bs-body-bg);
   padding-top: 0;
 }
-.main-layout .sideNavContainer .add-new-container .add-new-button {
+.main-layout #sideNav .sideNavContainer .add-new-container .add-new-button {
   background: #fff;
   font-weight: 800;
   border: 1px solid #bcbcbc;
@@ -12102,24 +12105,24 @@ svg {
   padding: 5px;
   width: 100%;
 }
-.main-layout .sideNavContainer .add-new-container .add-new-button svg {
+.main-layout #sideNav .sideNavContainer .add-new-container .add-new-button svg {
   display: inline;
 }
-.main-layout .sideNavContainer .bg-yellow-100 {
+.main-layout #sideNav .sideNavContainer .bg-yellow-100 {
   background: rgb(160, 160, 160);
 }
-.main-layout .sideNavContainer .side-nav-folder {
+.main-layout #sideNav .sideNavContainer .side-nav-folder {
   font-weight: 800;
   border-bottom: 1px solid #929292;
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
-.main-layout .sideNavContainer .side-nav-folder .side-nav-note {
+.main-layout #sideNav .sideNavContainer .side-nav-folder .side-nav-note {
   background-color: transparent;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   margin: 0px;
 }
-.main-layout .sideNavContainer .side-nav-folder a {
+.main-layout #sideNav .sideNavContainer .side-nav-folder a {
   font-weight: 400;
   padding: 5px;
   padding-left: 20px;
@@ -12127,7 +12130,7 @@ svg {
   background-color: var(--bs-body-bg);
   border-radius: 15px;
 }
-.main-layout .sideNavContainer .side-nav-folder svg {
+.main-layout #sideNav .sideNavContainer .side-nav-folder svg {
   height: 16px;
   padding-left: 8px;
   padding-bottom: 5px;
@@ -12157,9 +12160,10 @@ svg {
   flex-direction: column;
 }
 .main-layout #main .scroll-history {
-  height: 57vh;
+  height: 54vh;
   overflow-y: scroll;
   flex-grow: 1;
+  border-bottom: 1px solid #ddd;
 }
 .main-layout #main .scroll-history .card {
   padding: 10px 20px;
@@ -12295,6 +12299,12 @@ textarea:focus, input:focus, *:focus {
   #sideNav {
     display: none;
   }
+}
+.blue-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: blue;
 }
 
 html { 

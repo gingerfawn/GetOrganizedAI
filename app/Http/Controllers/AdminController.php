@@ -15,7 +15,10 @@ class AdminController extends Controller
 {
     public function resetDatabase(){
         Subscription::truncate();
-        // User::truncate();
+        $users = User::all();
+        foreach($users as $user){
+            User::where('id', $user->id)->delete();
+        }
         Profile::truncate();
         Folders::truncate();
         Notes::truncate();

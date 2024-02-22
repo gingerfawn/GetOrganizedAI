@@ -1,6 +1,5 @@
 @include('components.header')
 @include('components.navbar')
-@include('components.site-header')      
 
 <div class="container">
     <div class="main-layout">
@@ -14,7 +13,10 @@
     </div>
 
     <div id="main">      
-        @include('components.ai-form')
+        {{-- @include('components.ai-form') --}}
+        <div>
+        <livewire:chat-module :current_profile="$current_profile" :draft_folder="$draft_folder" />
+        </div>
     </div>
 
     @endauth

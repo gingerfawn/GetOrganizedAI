@@ -74,7 +74,7 @@ class APIController extends Controller
         //Start chat functionality
         if($request->exists('chat') && trim($request->chat) != ''){
 
-        $gemini_response = Gemini::generateText($request->chat);
+        // $gemini_response = Gemini::generateText($request->chat);
         $chats = Chats::where('note_id', $current_note->id)->get();
 
         $history = [];
