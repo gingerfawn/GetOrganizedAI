@@ -16,9 +16,16 @@
     </div>
 
     <form wire:submit.prevent="submitChat">
+        @csrf
         <textarea wire:model="current_chat" type="text" class="chatBox"></textarea>
         <button type="submit" class="gemini_submit">Ask</button>
     </form>
+    <form wire:submit.prevent="submitChat">
+        @csrf
+        <input wire:model="web_crawl" type="text"></input>
+        <button type="submit" class="gemini_submit">Train</button>
+    </form>
+
     <div class="scroll-history">
         @isset($history)
             @foreach($history as $chat_history)

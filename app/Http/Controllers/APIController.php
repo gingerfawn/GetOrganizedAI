@@ -29,7 +29,7 @@ class APIController extends Controller
 
         $profiles = Profile::where('user_id', $user->id)->get();
         $current_profile = Profile::where('user_id', $user->id)->where('default', 'true')->first();
-        $draft_folder = Folders::where('profile_id', $current_profile->id)->where('type', 'draft')->first();
+        $draft_folder = Folders::where('profile_id', $user->id)->where('type', 'draft')->first();
 
         $profile_ids = [];
         foreach($profiles as $profile){
