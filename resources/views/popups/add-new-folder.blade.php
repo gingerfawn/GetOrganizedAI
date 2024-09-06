@@ -11,7 +11,7 @@
             <form method="post" action="/add-new-folder">
                 @csrf
                 <input type="text" name="folder_name" value=""/>
-                <input type="hidden" name="profile_id" value="{{$current_profile->id}}">
+                {{-- <input type="hidden" name="profile_id" value="{{$current_profile->id}}"> --}}
                 <input type="submit" value="Submit">
             </form>
 
