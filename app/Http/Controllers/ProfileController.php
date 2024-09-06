@@ -103,11 +103,11 @@ class ProfileController extends Controller
             Notes::whereIn('folder_id', $foldersArray)->delete();
             Folders::where('profile_id', $deleteProfile)->delete();
             Profile::where('id', $deleteProfile)->delete();
+
+            $user = Auth::user();
+            $first_profile = Profile::where('user_id', $user->id)->first();
+            $first_profile->update(['default' => 'true']);
         }
-        
-        $user = Auth::user();
-        $first_profile = Profile::where('user_id', $user->id)->first();
-        $first_profile->update(['default' => true]);
         
         return redirect('/');
     }
