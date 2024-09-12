@@ -14,7 +14,7 @@ use App\Models\Chats;
 class NotesController extends Controller
 {
     public function addNew(Request $request){
-
+        
         return back();
     }
 

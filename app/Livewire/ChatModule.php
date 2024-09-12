@@ -30,6 +30,7 @@ class ChatModule extends Component
     public $draft_folder;
     public $show = false;
     public $current_note_name;
+    public $user_note;
 
     public function submitChat(){
 

@@ -11,7 +11,7 @@
             <form method="post" action="/add-new-profile">
                 @csrf
                 <input type="text" name="profile_name" value="">
-                <input value="Submti" type="submit">
+                <input value="Submit" type="submit">
             </form>
 
         </div>

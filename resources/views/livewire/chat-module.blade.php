@@ -23,7 +23,12 @@
     <form wire:submit.prevent="submitChat">
         @csrf
         <input wire:model="web_crawl" type="text"></input>
-        <button type="submit" class="gemini_submit">Train</button>
+        <button type="submit" class="gemini_submit" >Train</button>
+    </form>
+    <form wire:submit.prevent="submitChat">
+        @csrf
+        <input wire:model="user_note" type="text"></input>
+        <button type="submit" class="gemini_submit" >Note</button>
     </form>
 
     <div class="scroll-history">
