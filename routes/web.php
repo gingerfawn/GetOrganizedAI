@@ -74,6 +74,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/mobile', function(){
+    return view('mobile-delete-later');
+});
+
 Route::get('/reset-db', [AdminController::class, 'resetDatabase']);
 
 Route::post('/payments/pay', [PaymentController::class, 'pay'])->name('pay');
