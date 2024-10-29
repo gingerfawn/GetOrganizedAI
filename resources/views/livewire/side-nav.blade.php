@@ -10,8 +10,8 @@
                 @foreach($notes as $note)
                     @if($note->folder_id == $folder->id)
                     <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}" class="side-nav-note">
-                        {{-- <a draggable='false' href="/?note={{ $note->id }}">{{$note->name}}</a>  --}}
-                        <a draggable='false'  wire:click="getNote({{$note->id}})" >{{$note->name}}</a> 
+                    {{-- <a draggable='false' href="/?note={{ $note->id }}">{{$note->name}}</a> --}}
+                        <a draggable='false'  wire:click="getNote({{$note->id}})" >{{$note->name}}</a>  
                     </div>
                     @endif
                 @endforeach
@@ -26,8 +26,8 @@
                 @foreach($notes as $note)
                     @if($note->folder_id == $draft_folder->id)
                     <div drag-note draggable="true" wire:key="note-{{ $note->id }}" drag-item="{{ $note->id }}" class="side-nav-note">
-                        {{-- <a draggable="false" href="/?note={{ $note->id }}">{{$note->name}}</a>  --}}
-                        <a draggable="false"  wire:click="getNote({{$note->id}})" >{{$note->name}}</a> 
+                         {{-- <a draggable="false" href="/?note={{ $note->id }}">{{$note->name}}</a>  --}}
+                         <a draggable="false"  wire:click="getNote({{$note->id}})" >{{$note->name}}</a> 
                     </div>
                     @endif
                 @endforeach
