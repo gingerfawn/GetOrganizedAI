@@ -1,1 +1,1 @@
-<input type="file" accept="image/*" capture="camera">
+<input type="file" name="image" accept="image/*" capture="user">
