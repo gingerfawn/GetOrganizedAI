@@ -20,16 +20,16 @@
         <textarea wire:model="current_chat" type="text" class="chatBox"></textarea>
         <button type="submit" class="gemini_submit">Ask</button>
     </form>
-    <form wire:submit.prevent="submitChat">
+    <!-- <form wire:submit.prevent="submitChat">
         @csrf
         <input wire:model="web_crawl" type="text"></input>
         <button type="submit" class="gemini_submit" >Train</button>
-    </form>
-    <form wire:submit.prevent="submitChat">
+    </form> -->
+    <!-- <form wire:submit.prevent="submitChat">
         @csrf
         <input wire:model="user_note" type="text"></input>
         <button type="submit" class="gemini_submit" >Note</button>
-    </form>
+    </form> -->
 
     <div class="scroll-history">
         @isset($history)
