@@ -15,6 +15,11 @@
     </div>
     </div>
 
+    {{-- 
+        This form is part of the Livewire chat module view. 
+        It uses the wire:submit.prevent directive to handle form submission via Livewire without reloading the page.
+        The submitChat method will be called when the form is submitted.
+    --}}
     <form wire:submit.prevent="submitChat">
         @csrf
         <textarea wire:model="current_chat" type="text" class="chatBox"></textarea>
